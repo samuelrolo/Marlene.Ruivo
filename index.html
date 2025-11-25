@@ -2,1683 +2,1069 @@
 <html lang="pt">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marlene Ruivo | Nutrição FODMAP & Saúde Intestinal</title>
-    <meta name="description"
-        content="Nutricionista Marlene Ruivo, especialista em saúde intestinal, síndrome do intestino irritável e dieta FODMAP. Consultas online e presenciais. Freelance a partir de dezembro de 2025." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            color-scheme: light;
-
-            /* Color System */
-            --teal-primary: #0f766e;
-            --teal: #0f766e;
-            /* Alias for compatibility */
-            --teal-light: #14b8a6;
-            --mint: #b8e0d8;
-            --mint-soft: #d8efe9;
-            --mint-bg: #f0fdfa;
-            --seafoam: #a1d0c1;
-            --deep: #0f172a;
-            --text: #1f2937;
-            --text-secondary: #64748b;
-            --muted: #4b5563;
-            --cloud: #f4f7f6;
-            --white: #ffffff;
-
-            /* Spacing Scale */
-            --space-xs: 8px;
-            --space-sm: 16px;
-            --space-md: 24px;
-            --space-lg: 48px;
-            --space-xl: 80px;
-            --space-2xl: 120px;
-
-            /* Typography */
-            --text-base: 1.0625rem;
-            --text-sm: 0.9375rem;
-
-            /* Effects */
-            --shadow: 0 20px 60px rgba(10, 54, 46, 0.08);
-            --shadow-sm: 0 4px 16px rgba(10, 54, 46, 0.06);
-            --shadow-lg: 0 30px 80px rgba(10, 54, 46, 0.12);
-            --radius: 16px;
-            --radius-sm: 12px;
-            --radius-lg: 24px;
-
-            scroll-behavior: smooth;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
-            color: var(--text);
-            background: var(--cloud);
-            line-height: 1.7;
-            min-height: 100vh;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            background: rgba(255, 255, 255, 0.94);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(12, 88, 79, 0.08);
-        }
-
-        .nav-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px clamp(18px, 4vw, 38px);
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo img {
-            width: 160px;
-            height: auto;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: clamp(16px, 1.8vw, 24px);
-            padding: 0;
-            margin: 0;
-            align-items: center;
-            font-weight: 600;
-        }
-
-        nav a {
-            color: var(--deep);
-            position: relative;
-            padding: 6px 0;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--teal);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.2s ease;
-        }
-
-        nav a:focus-visible,
-        nav a:hover {
-            color: var(--teal);
-        }
-
-        nav a:hover::after,
-        nav a:focus-visible::after {
-            transform: scaleX(1);
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 18px;
-            border-radius: 14px;
-            border: none;
-            background: var(--teal);
-            color: var(--white);
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 15px 35px rgba(15, 118, 110, 0.18);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .btn.secondary {
-            background: var(--white);
-            color: var(--teal);
-            border: 1px solid rgba(15, 118, 110, 0.2);
-            box-shadow: none;
-        }
-
-        .btn:hover,
-        .btn:focus-visible {
-            transform: translateY(-1px);
-        }
-
-        .btn.secondary:hover,
-        .btn.secondary:focus-visible {
-            box-shadow: 0 10px 26px rgba(15, 118, 110, 0.16);
-        }
-
-        main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: clamp(20px, 5vw, 40px) clamp(18px, 5vw, 36px) 60px;
-        }
-
-        section {
-            margin: clamp(60px, 12vw, 120px) 0;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--mint-soft);
-            color: var(--teal);
-            padding: 10px 14px;
-            border-radius: 999px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            letter-spacing: 0.01em;
-        }
-
-        h1,
-        h2,
-        h3 {
-            margin: 0;
-            color: var(--deep);
-            letter-spacing: -0.01em;
-        }
-
-        h1 {
-            font-size: clamp(2.4rem, 5vw, 3.4rem);
-            line-height: 1.1;
-        }
-
-        h2 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            margin-bottom: 10px;
-        }
-
-        h3 {
-            font-size: 1.25rem;
-        }
-
-        p {
-            margin: 0;
-            color: var(--muted);
-        }
-
-        .hero {
-            background: linear-gradient(135deg, rgba(184, 224, 216, 0.45), rgba(232, 246, 242, 0.85));
-            border-radius: 28px;
-            padding: clamp(24px, 5vw, 48px);
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: clamp(24px, 4vw, 40px);
-            align-items: center;
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 320px;
-            height: 320px;
-            background: radial-gradient(circle at 30% 30%, rgba(15, 118, 110, 0.16), transparent 55%);
-            right: -60px;
-            bottom: -60px;
-            filter: blur(8px);
-        }
-
-        .hero-text {
-            position: relative;
-            z-index: 1;
-        }
-
-        .badge-monash {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            background: var(--mint-bg);
-            color: var(--teal-primary);
-            border-radius: 24px;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 16px;
-            border: 1px solid rgba(15, 118, 110, 0.15);
-        }
-
-        .badge-monash svg {
-            flex-shrink: 0;
-        }
-
-        .hero-subtitle {
-            font-size: 1.125rem !important;
-            line-height: 1.6 !important;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin-top: 16px !important;
-        }
-
-        .benefit-list {
-            list-style: none;
-            padding: 0;
-            margin: 24px 0;
-            display: grid;
-            gap: 12px;
-        }
-
-        .benefit-list li {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.0625rem;
-            font-weight: 500;
-            color: var(--text);
-        }
-
-        .benefit-list .check-icon {
-            flex-shrink: 0;
-            color: var(--teal-primary);
-            background: var(--mint-bg);
-            border-radius: 50%;
-            padding: 4px;
-        }
-
-        .btn-large {
-            padding: 16px 32px !important;
-            font-size: 1.0625rem;
-            min-height: 56px;
-        }
-
-        .hero-text p {
-            font-size: 1.05rem;
-            margin-top: 16px;
-            max-width: 640px;
-        }
-
-        .hero-actions {
-            display: flex;
-            gap: 12px;
-            margin-top: 28px;
-            flex-wrap: wrap;
-        }
-
-        .hero-figure {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-card {
-            background: var(--white);
-            padding: 14px 16px;
-            border-radius: 18px;
-            box-shadow: 0 12px 30px rgba(14, 78, 68, 0.12);
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            position: absolute;
-            bottom: 18px;
-            right: 18px;
-            min-width: 220px;
-        }
-
-        .hero-portrait {
-            width: 100%;
-            max-width: 480px;
-            margin-left: auto;
-            border-radius: 24px;
-            object-fit: cover;
-            box-shadow: 0 20px 45px rgba(12, 72, 64, 0.18);
-            border: 10px solid rgba(255, 255, 255, 0.7);
-        }
-
-        .pill-icon {
-            width: 44px;
-            height: 44px;
-            display: grid;
-            place-items: center;
-            border-radius: 12px;
-            background: var(--mint);
-        }
-
-        .section-head {
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 20px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-
-        .text-block {
-            max-width: 760px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 18px;
-        }
-
-        .grid-2-cols {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 18px;
-        }
-
-        @media (min-width: 640px) {
-            .grid-2-cols {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .card {
-            background: var(--white);
-            padding: 18px 18px 20px;
-            border-radius: 18px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(15, 118, 110, 0.06);
-            display: grid;
-            gap: 10px;
-        }
-
-        .card .icon {
-            width: 46px;
-            height: 46px;
-            border-radius: 12px;
-            display: grid;
-            place-items: center;
-            background: var(--mint-soft);
-        }
-
-        .muted-label {
-            color: var(--muted);
-            font-weight: 600;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        .list-inline {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            padding: 0;
-            margin: 0;
-            list-style: none;
-        }
-
-        .chip {
-            padding: 10px 14px;
-            background: var(--mint-soft);
-            color: var(--deep);
-            border-radius: 999px;
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        .symptoms {
-            background: linear-gradient(120deg, rgba(184, 224, 216, 0.55), rgba(244, 247, 246, 0.85));
-            border-radius: 26px;
-            padding: clamp(20px, 4vw, 36px);
-            box-shadow: var(--shadow);
-        }
-
-        .testimonial {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 18px 18px 20px;
-            border: 1px solid rgba(15, 118, 110, 0.08);
-            box-shadow: 0 12px 30px rgba(15, 118, 110, 0.12);
-            display: grid;
-            gap: 10px;
-        }
-
-        .resource-card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 16px;
-            border: 1px solid rgba(15, 118, 110, 0.08);
-            display: grid;
-            gap: 12px;
-            box-shadow: 0 14px 32px rgba(15, 118, 110, 0.08);
-        }
-
-        .contact {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-            align-items: start;
-        }
-
-        form {
-            display: grid;
-            gap: 12px;
-            background: var(--white);
-            padding: 18px;
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(15, 118, 110, 0.08);
-        }
-
-        label {
-            font-weight: 700;
-            color: var(--deep);
-        }
-
-        input,
-        textarea,
-        select {
-            width: 100%;
-            padding: 12px 14px;
-            border-radius: 12px;
-            border: 1px solid rgba(15, 118, 110, 0.2);
-            font-family: inherit;
-            font-size: 1rem;
-            background: var(--cloud);
-        }
-
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        footer {
-            padding: 32px clamp(18px, 4vw, 36px) 44px;
-            background: linear-gradient(135deg, rgba(184, 224, 216, 0.4), rgba(232, 246, 242, 0.85));
-            color: var(--deep);
-            margin-top: 80px;
-            border-top: 1px solid rgba(15, 118, 110, 0.12);
-        }
-
-        .footer-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            gap: 8px;
-            align-items: start;
-        }
-
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
-
-        .footer-brand img {
-            width: 180px;
-            height: auto;
-            display: block;
-            filter: drop-shadow(0 8px 16px rgba(12, 72, 64, 0.12));
-        }
-
-        .socials {
-            display: flex;
-            gap: 10px;
-        }
-
-        .socials a {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            background: rgba(15, 118, 110, 0.12);
-            display: grid;
-            place-items: center;
-            color: var(--teal);
-            border: 1px solid rgba(15, 118, 110, 0.12);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-        }
-
-        .socials a:hover,
-        .socials a:focus-visible {
-            transform: translateY(-2px);
-            background: rgba(15, 118, 110, 0.18);
-            box-shadow: 0 10px 22px rgba(14, 78, 68, 0.12);
-            outline: none;
-        }
-
-        .subtitle {
-            font-size: 1.05rem;
-            color: var(--muted);
-        }
-
-        /* Timeline Styles */
-        .timeline {
-            position: relative;
-            padding-left: 40px;
-            margin-top: 20px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 8px;
-            top: 8px;
-            bottom: 8px;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--teal-primary), var(--mint));
-        }
-
-        .timeline-item {
-            position: relative;
-            padding-bottom: 32px;
-        }
-
-        .timeline-item:last-child {
-            padding-bottom: 0;
-        }
-
-        .timeline-marker {
-            position: absolute;
-            left: -32px;
-            top: 4px;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--white);
-            border: 3px solid var(--teal-primary);
-            box-shadow: 0 0 0 4px var(--mint-bg);
-            z-index: 1;
-        }
-
-        .timeline-content {
-            background: var(--white);
-            padding: 16px 20px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-sm);
-            border-left: 3px solid var(--mint);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .timeline-content:hover {
-            transform: translateX(4px);
-            box-shadow: var(--shadow);
-            border-left-color: var(--teal-primary);
-        }
-
-        .timeline-date {
-            color: var(--teal-primary);
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-            display: block;
-        }
-
-        .timeline-title {
-            color: var(--deep);
-            font-weight: 700;
-            margin-bottom: 2px;
-        }
-
-        .timeline-company {
-            color: var(--teal);
-            font-size: 0.9375rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .timeline-description {
-            font-size: 0.9375rem;
-            color: var(--muted);
-            line-height: 1.6;
-        }
-
-        .cookie-banner {
-            position: fixed;
-            inset: auto 16px 16px 16px;
-            max-width: 420px;
-            background: var(--white);
-            box-shadow: 0 20px 60px rgba(10, 54, 46, 0.12);
-            border-radius: 18px;
-            padding: 16px 18px;
-            border: 1px solid rgba(15, 118, 110, 0.15);
-            display: none;
-            z-index: 20;
-        }
-
-        .cookie-content {
-            display: grid;
-            gap: 12px;
-        }
-
-        .cookie-content p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: var(--text);
-        }
-
-        .cookie-content a {
-            color: var(--teal);
-            font-weight: 700;
-        }
-
-        .cookie-actions {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
-            flex-wrap: wrap;
-        }
-
-        @media (max-width: 880px) {
-            nav ul {
-                display: none;
-            }
-
-            .nav-actions {
-                margin-left: auto;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero-card {
-                position: relative;
-                inset: unset;
-                margin-top: 14px;
-            }
-
-            header {
-                position: sticky;
-            }
-        }
-
-        /* Expandable Card Styles */
-        .expandable-card {
-            background: var(--white);
-            border-radius: 18px;
-            box-shadow: var(--shadow);
-            border: 1px solid rgba(15, 118, 110, 0.06);
-            overflow: hidden;
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-        }
-
-        .expandable-card.expanded {
-            box-shadow: 0 20px 50px rgba(15, 118, 110, 0.15);
-            border-color: rgba(15, 118, 110, 0.2);
-        }
-
-        .card-header {
-            padding: 24px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 16px;
-        }
-
-        .card-header h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            color: var(--teal);
-        }
-
-        .card-toggle-icon {
-            width: 24px;
-            height: 24px;
-            flex-shrink: 0;
-            color: var(--teal);
-            transition: transform 0.3s ease;
-        }
-
-        .expandable-card.expanded .card-toggle-icon {
-            transform: rotate(180deg);
-        }
-
-        .card-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            background: var(--cloud);
-        }
-
-        .card-content-inner {
-            padding: 0 24px 24px;
-            border-top: 1px solid rgba(15, 118, 110, 0.08);
-            padding-top: 24px;
-        }
-
-        .card-content h4 {
-            font-size: 1rem;
-            color: var(--deep);
-            margin: 0 0 12px;
-        }
-
-        .recipe-block,
-        .article-block {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(15, 118, 110, 0.1);
-        }
-
-        .recipe-block:last-child,
-        .article-block:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .recipe-title {
-            font-weight: 700;
-            color: var(--teal);
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        /* Manifesto Section */
-        .manifesto-section {
-            background-color: #11423d;
-            /* Darker teal/green */
-            color: var(--white);
-            border-radius: 28px;
-            padding: clamp(40px, 8vw, 80px) clamp(24px, 5vw, 48px);
-            text-align: center;
-            margin: clamp(60px, 12vw, 120px) 0;
-        }
-
-        .manifesto-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 32px;
-        }
-
-        .manifesto-logo {
-            width: 280px;
-            height: auto;
-            filter: brightness(0) invert(1);
-            /* Make logo white */
-            opacity: 0.9;
-        }
-
-        .manifesto-section blockquote {
-            font-family: 'Manrope', serif;
-            /* Using Manrope as base, but could be serif if imported */
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            font-weight: 700;
-            line-height: 1.3;
-            margin: 0 0 24px;
-            max-width: 800px;
-        }
-
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            width: 100%;
-            margin-top: 24px;
-        }
-
-        @media (min-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 24px;
-            }
-        }
-
-        .gallery-grid img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            /* Square photos */
-            object-fit: cover;
-            border-radius: 16px;
-            border: 4px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-grid img:hover {
-            transform: scale(1.02);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Specialization Cards Hover Effect */
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 25px 50px rgba(15, 118, 110, 0.15);
-        }
-
-        /* Specialization Grid */
-        .specialization-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-
-        @media (max-width: 768px) {
-            .specialization-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .specialization-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marlene Ruivo | Nutrição FODMAP & Saúde Intestinal</title>
+  <meta name="description"
+    content="Nutricionista Marlene Ruivo, especialista em saúde intestinal, síndrome do intestino irritável e dieta FODMAP. Consultas online e presenciais. Freelance a partir de dezembro de 2025." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --mint: #b8e0d8;
+      --mint-soft: #d8efe9;
+      --seafoam: #a1d0c1;
+      --teal: #0f766e;
+      --deep: #0f172a;
+      --text: #1f2937;
+      --muted: #4b5563;
+      --cloud: #f4f7f6;
+      --white: #ffffff;
+      --shadow: 0 20px 60px rgba(10, 54, 46, 0.08);
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      color: var(--text);
+      background: var(--cloud);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(12, 88, 79, 0.08);
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px clamp(18px, 4vw, 38px);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      width: 160px;
+      height: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: clamp(16px, 1.8vw, 24px);
+      padding: 0;
+      margin: 0;
+      align-items: center;
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--deep);
+      position: relative;
+      padding: 6px 0;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--teal);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.2s ease;
+    }
+
+    nav a:focus-visible,
+    nav a:hover {
+      color: var(--teal);
+    }
+
+    nav a:hover::after,
+    nav a:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: none;
+      background: var(--teal);
+      color: var(--white);
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 15px 35px rgba(15, 118, 110, 0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn.secondary {
+      background: var(--white);
+      color: var(--teal);
+      border: 1px solid rgba(15, 118, 110, 0.2);
+      box-shadow: none;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-1px);
+    }
+
+    .btn.secondary:hover,
+    .btn.secondary:focus-visible {
+      box-shadow: 0 10px 26px rgba(15, 118, 110, 0.16);
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: clamp(20px, 5vw, 40px) clamp(18px, 5vw, 36px) 60px;
+    }
+
+    section {
+      margin: clamp(60px, 12vw, 120px) 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--mint-soft);
+      color: var(--teal);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      color: var(--deep);
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(184, 224, 216, 0.45), rgba(232, 246, 242, 0.85));
+      border-radius: 28px;
+      padding: clamp(24px, 5vw, 48px);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: clamp(24px, 4vw, 40px);
+      align-items: center;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      background: radial-gradient(circle at 30% 30%, rgba(15, 118, 110, 0.16), transparent 55%);
+      right: -60px;
+      bottom: -60px;
+      filter: blur(8px);
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      margin-top: 16px;
+      max-width: 640px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero-figure {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card {
+      background: var(--white);
+      padding: 14px 16px;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(14, 78, 68, 0.12);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      position: absolute;
+      bottom: 18px;
+      right: 18px;
+      min-width: 220px;
+    }
+
+    .hero-portrait {
+      width: 100%;
+      max-width: 480px;
+      margin-left: auto;
+      border-radius: 24px;
+      object-fit: cover;
+      box-shadow: 0 20px 45px rgba(12, 72, 64, 0.18);
+      border: 10px solid rgba(255, 255, 255, 0.7);
+    }
+
+    .pill-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--mint);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .text-block {
+      max-width: 760px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 18px 18px 20px;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15, 118, 110, 0.06);
+      display: grid;
+      gap: 10px;
+    }
+
+    .card .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--mint-soft);
+    }
+
+    .muted-label {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .list-inline {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .chip {
+      padding: 10px 14px;
+      background: var(--mint-soft);
+      color: var(--deep);
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .symptoms {
+      background: linear-gradient(120deg, rgba(184, 224, 216, 0.55), rgba(244, 247, 246, 0.85));
+      border-radius: 26px;
+      padding: clamp(20px, 4vw, 36px);
+      box-shadow: var(--shadow);
+    }
+
+    .testimonial {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 18px 18px 20px;
+      border: 1px solid rgba(15, 118, 110, 0.08);
+      box-shadow: 0 12px 30px rgba(15, 118, 110, 0.12);
+      display: grid;
+      gap: 10px;
+    }
+
+    .resource-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid rgba(15, 118, 110, 0.08);
+      display: grid;
+      gap: 12px;
+      box-shadow: 0 14px 32px rgba(15, 118, 110, 0.08);
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      align-items: start;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+      background: var(--white);
+      padding: 18px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15, 118, 110, 0.08);
+    }
+
+    label {
+      font-weight: 700;
+      color: var(--deep);
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(15, 118, 110, 0.2);
+      font-family: inherit;
+      font-size: 1rem;
+      background: var(--cloud);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    footer {
+      padding: 32px clamp(18px, 4vw, 36px) 44px;
+      background: linear-gradient(135deg, rgba(184, 224, 216, 0.4), rgba(232, 246, 242, 0.85));
+      color: var(--deep);
+      margin-top: 80px;
+      border-top: 1px solid rgba(15, 118, 110, 0.12);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      gap: 8px;
+      align-items: start;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand img {
+      width: 120px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 8px 16px rgba(12, 72, 64, 0.12));
+    }
+
+    .socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .socials a {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(15, 118, 110, 0.12);
+      display: grid;
+      place-items: center;
+      color: var(--teal);
+      border: 1px solid rgba(15, 118, 110, 0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .socials a:hover,
+    .socials a:focus-visible {
+      transform: translateY(-2px);
+      background: rgba(15, 118, 110, 0.18);
+      box-shadow: 0 10px 22px rgba(14, 78, 68, 0.12);
+      outline: none;
+    }
+
+    .subtitle {
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    .cookie-banner {
+      position: fixed;
+      inset: auto 16px 16px 16px;
+      max-width: 420px;
+      background: var(--white);
+      box-shadow: 0 20px 60px rgba(10, 54, 46, 0.12);
+      border-radius: 18px;
+      padding: 16px 18px;
+      border: 1px solid rgba(15, 118, 110, 0.15);
+      display: none;
+      z-index: 20;
+    }
+
+    .cookie-content {
+      display: grid;
+      gap: 12px;
+    }
+
+    .cookie-content p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .cookie-content a {
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .cookie-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 880px) {
+      nav ul {
+        display: none;
+      }
+
+      .nav-actions {
+        margin-left: auto;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-card {
+        position: relative;
+        inset: unset;
+        margin-top: 14px;
+      }
+
+      header {
+        position: sticky;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <header>
-        <div class="nav-bar">
-            <a class="logo" href="#inicio" aria-label="Voltar ao início">
-                <img src="https://raw.githubusercontent.com/samuelrolo/Marlene.Ruivo/main/Assets/logo.png"
-                    alt="Logótipo Marlene Ruivo Gut Health Clinic">
-            </a>
-            <nav aria-label="Navegação principal">
-                <ul>
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#sobre">Marlene</a></li>
-                    <li><a href="#consultas">Especialidades</a></li>
-                    <li><a href="#fodmap">FODMAP</a></li>
-                    <li><a href="#sintomas">Sintomas</a></li>
-                    <li><a href="#testemunhos">Testemunhos</a></li>
-                    <li><a href="#receitas">Recursos</a></li>
-                    <li><a href="#contactos">Contactos</a></li>
-                </ul>
-            </nav>
-            <div class="nav-actions">
-                <a class="btn" href="#contactos">Marcar consulta</a>
-            </div>
-        </div>
-    </header>
-
-    <main id="inicio">
-        <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-text">
-                <div class="badge-monash">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    <span>Certificada Monash University</span>
-                </div>
-                <span class="eyebrow">Saúde intestinal • Dieta FODMAP</span>
-                <h1 id="hero-title">Nutrição especializada em saúde intestinal e dieta FODMAP</h1>
-                <p class="hero-subtitle">Apoio clínico baseado em ciência para reduzir sintomas e recuperar o bem-estar
-                    digestivo.</p>
-
-                <ul class="benefit-list">
-                    <li>
-                        <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                        <span>Redução da dor abdominal</span>
-                    </li>
-                    <li>
-                        <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                        <span>Diminuição do inchaço</span>
-                    </li>
-                    <li>
-                        <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
-                            <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                        <span>Plano alinhado com gastroenterologia</span>
-                    </li>
-                </ul>
-
-                <div class="hero-actions">
-                    <a class="btn btn-large" href="#contactos">Agendar consulta</a>
-                    <a class="btn secondary" href="#sobre">Saber mais</a>
-                </div>
-            </div>
-            <div class="hero-figure" aria-hidden="true">
-                <img class="hero-portrait" src="Assets/Foto Marlene 1.png"
-                    alt="Drª Marlene Ruivo, Nutricionista especializada em saúde intestinal" loading="lazy">
-                <div class="hero-card">
-                    <div class="pill-icon" aria-hidden="true">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            role="img" aria-label="Ícone intestino">
-                            <path d="M6 6c0-1.657 1.343-3 3-3h1c1.657 0 3 1.343 3 3v12a2 2 0 1 1-4 0V8" stroke="#0f766e"
-                                stroke-width="1.8" stroke-linecap="round" />
-                            <path d="M12 5h1a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-1" stroke="#0f766e" stroke-width="1.8"
-                                stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="muted-label" style="color: var(--teal);">Monash Certified</div>
-                        <strong>Plano FODMAP personalizado</strong>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="sobre" aria-labelledby="sobre-title">
-            <div class="section-head">
-                <div>
-                    <span class="eyebrow">Marlene Ruivo</span>
-                    <h2 id="sobre-title">15 anos de Experiência. Uma paixão: o intestino.</h2>
-
-                    <!-- Stats highlight -->
-                    <div
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 20px; margin: 32px 0; padding: 24px; background: var(--mint-bg); border-radius: 16px; border-left: 4px solid var(--teal-primary);">
-                        <div style="text-align: center;">
-                            <div
-                                style="font-size: 2.5rem; font-weight: 700; color: var(--teal-primary); line-height: 1;">
-                                15</div>
-                            <div style="font-size: 0.875rem; color: var(--muted); margin-top: 4px;">anos de prática
-                            </div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div
-                                style="font-size: 2.5rem; font-weight: 700; color: var(--teal-primary); line-height: 1;">
-                                38</div>
-                            <div style="font-size: 0.875rem; color: var(--muted); margin-top: 4px;">anos de idade</div>
-                        </div>
-                        <div style="text-align: center;">
-                            <div
-                                style="font-size: 2.5rem; font-weight: 700; color: var(--teal-primary); line-height: 1;">
-                                100%</div>
-                            <div style="font-size: 0.875rem; color: var(--muted); margin-top: 4px;">dedicação SII & SIBO
-                            </div>
-                        </div>
-                    </div>
-
-                    <p class="subtitle" style="font-size: 1.125rem; line-height: 1.7; margin-bottom: 20px;"><strong>Sou
-                            a Marlene
-                            Ruivo.</strong> Comecei como nutricionista focada em perda de peso e obesidade. Mas descobri
-                        que muitas
-                        pessoas carregavam mais do que quilos a mais — carregavam desconforto intestinal constante que
-                        roubava
-                        qualidade de vida.</p>
-
-                    <p class="subtitle">Essa descoberta mudou tudo. Formei-me em <strong>Dieta Low FODMAP pela Monash
-                            University</strong> e dediquei-me a Síndrome do Intestino Irritável (SII), SIBO e problemas
-                        gastrointestinais. Ajudo pessoas a recuperar conforto, equilíbrio e liberdade através da
-                        nutrição.</p>
-
-                    <p class="subtitle">Após <strong>15 anos em clínica privada</strong>, decidi criar o meu próprio
-                        caminho. Hoje
-                        trabalho em nome individual com foco total na área que mais me inspira: <strong>a saúde
-                            intestinal</strong>.
-                    </p>
-
-                    <p class="subtitle"
-                        style="font-size: 1.0625rem; color: var(--teal-primary); font-weight: 600; margin-top: 24px;">✨
-                        Nutrição
-                        personalizada, empática e realista. Ciência + experiência + humanidade.</p>
-                </div>
-                <ul class="list-inline">
-                    <li class="chip">SII & SIBO</li>
-                    <li class="chip">Gestão de sintomas</li>
-                    <li class="chip">Planos personalizados</li>
-                    <li class="chip">Consultas online</li>
-                </ul>
-
-            </div>
-
-            <!-- Experience & Education Section -->
-            <div
-                style="margin-top: 60px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
-
-                <!-- Experience -->
-                <div>
-                    <h3 style="display: flex; align-items: center; gap: 12px; margin-bottom: 24px; color: var(--teal);">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M20 7h-3V5c0-1.1-.9-2-2-2h-6c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM9 5h6v2H9V5zm11 15H4V9h16v11z"
-                                fill="currentColor" />
-                        </svg>
-                        Experiência Profissional
-                    </h3>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <span class="timeline-date">Mar 2021 - Presente</span>
-                                <div class="timeline-title">Nutricionista</div>
-                                <span class="timeline-company">SousiClinica · Freelance</span>
-                                <p class="timeline-description">Consulta de Nutrição Clínica geral e especializada em
-                                    FODMAP.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <span class="timeline-date">Ago 2012 - Nov 2013 • Set 2014 - Dez. 2025</span>
-                                <div class="timeline-title">Nutricionista</div>
-                                <span class="timeline-company">Clínica do Tempo</span>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <span class="timeline-date">Set 2017 - Presente</span>
-                                <div class="timeline-title">Nutricionista</div>
-                                <span class="timeline-company">Colégio Verde Água</span>
-                                <p class="timeline-description">Realização de ementas e fichas técnicas.</p>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item">
-                            <div class="timeline-marker"></div>
-                            <div class="timeline-content">
-                                <span class="timeline-date">Mar 2012 - Jul 2012</span>
-                                <div class="timeline-title">Nutricionista</div>
-                                <span class="timeline-company">Vivafit</span>
-                            </div>
-                            <div
-                                style="font-weight: 700; color: var(--deep); font-size: 0.9375rem; margin-bottom: 4px;">
-                                </p>
-                            </div>
-                            <svg class="card-toggle-icon" viewBox="0 0 24 24" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <div class="card-content" id="content-artigos">
-                            <div class="card-content-inner">
-                                <h4>Artigos informativos</h4>
-                                <ul style="padding-left: 20px; display: grid; gap: 12px;">
-                                    <li><a href="https://www.monashfodmap.com/blog/how-read-food-labels/"
-                                            target="_blank" style="color: var(--teal); font-weight: 600;">Como
-                                            interpretar
-                                            rótulos alimentares quando se tem
-                                            SII</a></li>
-                                    <li><a href="https://www.monashfodmap.com/blog/fibre-ibs/" target="_blank"
-                                            style="color: var(--teal); font-weight: 600;">Fibras que ajudam
-                                            e fibras que irritam o
-                                            intestino</a>
-                                    </li>
-                                    <li><a href="https://my.clevelandclinic.org/health/diagnostics/22482-gut-microbiome-testing"
-                                            target="_blank" style="color: var(--teal); font-weight: 600;">O
-                                            que significa um exame à
-                                            microbiota
-                                            intestinal</a></li>
-                                    <li><a href="https://www.nhs.uk/conditions/lactose-intolerance/" target="_blank"
-                                            style="color: var(--teal); font-weight: 600;">Intolerância à
-                                            lactose versus má digestão
-                                            ocasional</a></li>
-                                    <li><a href="https://www.monashfodmap.com/blog/ibs-stress-relationship/"
-                                            target="_blank" style="color: var(--teal); font-weight: 600;">Como ajustar a
-                                            alimentação em períodos de maior
-                                            stress
-                                            digestivo</a></li>
-                                    <li><a href="https://www.monashfodmap.com/blog/protein-and-ibs/" target="_blank"
-                                            style="color: var(--teal); font-weight: 600;">Fontes de proteína
-                                            mais seguras para o intestino
-                                            sensível</a></li>
-                                    <li><a href="https://www.monashfodmap.com/blog/reintroduction-mistakes/"
-                                            target="_blank" style="color: var(--teal); font-weight: 600;">Erros mais
-                                            comuns
-                                            na fase de reintrodução low
-                                            FODMAP</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        </article>
-
-                        <!-- Card 3: Mitos e Verdades -->
-                        <article class="expandable-card">
-                            <div class="card-header" role="button" aria-expanded="false" aria-controls="content-mitos"
-                                tabindex="0">
-                                <div>
-                                    <h3>MITOS E VERDADES</h3>
-                                    <p>Esclarecimento de ideias feitas sobre restrições, glúten, lactose e
-                                        suplementação.</p>
-                                </div>
-                                <svg class="card-toggle-icon" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="card-content" id="content-mitos">
-                                <div class="card-content-inner">
-                                    <h4>Mitos e verdades sobre saúde intestinal</h4>
-
-                                    <div class="article-block">
-                                        <span class="recipe-title">“O glúten é sempre o culpado pelos
-                                            sintomas”</span>
-                                        <p><strong>Esclarecimento:</strong> muitas pessoas reagem aos
-                                            FODMAPs do trigo e não ao glúten em si.
-                                        </p>
-                                    </div>
-
-                                    <div class="article-block">
-                                        <span class="recipe-title">“A lactose é um problema para toda a
-                                            gente com SII”</span>
-                                        <p><strong>Esclarecimento:</strong> falso. A sensibilidade é
-                                            variável e muitos toleram quantidades
-                                            moderadas.</p>
-                                    </div>
-
-                                    <div class="article-block">
-                                        <span class="recipe-title">“Os probióticos resolvem o SII”</span>
-                                        <p><strong>Esclarecimento:</strong> não resolvem. Podem ajudar
-                                            quando se escolhem estirpes adequadas ao
-                                            tipo de sintomas.</p>
-                                    </div>
-
-                                    <div class="article-block">
-                                        <span class="recipe-title">“Eliminações prolongadas fazem sempre
-                                            bem”</span>
-                                        <p><strong>Esclarecimento:</strong> falso. Restrições longas
-                                            empobrecem a microbiota e podem piorar a
-                                            tolerância.</p>
-                                    </div>
-
-                                    <div class="article-block">
-                                        <span class="recipe-title">“Se é saudável, nunca faz mal ao
-                                            intestino”</span>
-                                        <p><strong>Esclarecimento:</strong> nem sempre. Alho, cebola ou
-                                            leguminosas são saudáveis, mas muito
-                                            ricos em FODMAPs para quem tem intestino sensível.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Card 4: Psicobióticos -->
-                        <article class="expandable-card">
-                            <div class="card-header" role="button" aria-expanded="false"
-                                aria-controls="content-psicobioticos" tabindex="0">
-                                <div>
-                                    <h3>PSICOBIÓTICOS</h3>
-                                    <p>Ligação intestino cérebro e impacto de probióticos específicos no
-                                        humor e no conforto digestivo.</p>
-                                </div>
-                                <svg class="card-toggle-icon" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="card-content" id="content-psicobioticos">
-                                <div class="card-content-inner">
-                                    <h4>Psicobióticos e eixo intestino cérebro</h4>
-                                    <p style="margin-bottom: 16px;">A ciência atual mostra que o intestino e
-                                        o cérebro comunicam de forma
-                                        contínua através do eixo intestino cérebro. Esta ligação envolve o
-                                        sistema nervoso, o sistema imunitário
-                                        e a microbiota.</p>
-                                    <p style="margin-bottom: 16px;">Os psicobióticos são probióticos
-                                        específicos com capacidade de influenciar
-                                        esta comunicação, atuando tanto no bem estar digestivo como na
-                                        regulação emocional. Não “curam”
-                                        ansiedade ou depressão, mas podem modular neurotransmissores
-                                        associados ao humor, como serotonina e
-                                        GABA, além de reduzir inflamação intestinal que muitas vezes se
-                                        associa a alterações emocionais.</p>
-                                    <p style="margin-bottom: 16px;">As estirpes mais estudadas incluem
-                                        espécies de Lactobacillus e
-                                        Bifidobacterium, em especial <em>Lactobacillus rhamnosus GG</em>,
-                                        <em>Bifidobacterium longum 1714</em> e
-                                        <em>Lactobacillus helveticus R0052</em>.
-                                    </p>
-
-                                    <div
-                                        style="background: var(--mint-soft); padding: 16px; border-radius: 12px; margin-top: 20px;">
-                                        <strong style="color: var(--teal); display: block; margin-bottom: 8px;">Como
-                                            atuar na prática</strong>
-                                        <ul style="padding-left: 20px; margin: 0;">
-                                            <li>Introduzir apenas uma estirpe de cada vez para avaliar
-                                                tolerância.</li>
-                                            <li>Acompanhar sintomas digestivos nas primeiras semanas.</li>
-                                            <li>Ajustar a dose em fases de maior stress digestivo.</li>
-                                            <li>Integrar sempre com hábitos que apoiem o eixo intestino
-                                                cérebro: sono regular, refeições
-                                                estruturadas e gestão do stress.</li>
-                                        </ul>
-                                    </div>
-
-                                    <p style="margin-top: 16px;"><strong>Resultado esperado:</strong>
-                                        Melhoria gradual do conforto intestinal,
-                                        menor desconforto pós refeição e sensação de maior estabilidade
-                                        emocional, principalmente quando os
-                                        psicobióticos são integrados num plano nutricional personalizado.
-                                    </p>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Card 5: Guias Práticos -->
-                        <article class="expandable-card">
-                            <div class="card-header" role="button" aria-expanded="false" aria-controls="content-guias"
-                                tabindex="0">
-                                <div>
-                                    <h3>GUIAS PRÁTICOS</h3>
-                                    <p>Ferramentas para aplicar o plano alimentar no dia a dia.</p>
-                                </div>
-                                <svg class="card-toggle-icon" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                            </div>
-                            <div class="card-content" id="content-guias">
-                                <div class="card-content-inner">
-                                    <h4>Guias práticos para o dia a dia</h4>
-                                    <ul style="padding-left: 20px; display: grid; gap: 10px;">
-                                        <li>Listas de compras organizadas por categorias seguras e a testar.
-                                        </li>
-                                        <li>Estratégias para gerir refeições fora de casa sem agravar
-                                            sintomas.</li>
-                                        <li>Sugestões de refeições base que podem ser adaptadas conforme a
-                                            tolerância individual.</li>
-                                        <li>Modelos de reintrodução faseada para acompanhar o progresso e
-                                            recuperar variedade alimentar.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-        </section>
-
-        <section id="contactos" aria-labelledby="contactos-title">
-            <div class="section-head">
-                <div>
-                    <span class="eyebrow">Contactos e Marcações</span>
-                    <h2 id="contactos-title">Comece a cuidar do seu intestino</h2>
-                    <p class="subtitle">Envie uma mensagem ou agende a primeira consulta. Respondemos com brevidade.</p>
-                </div>
-                <div style="display: grid; gap: 8px; font-size: 0.95rem; color: var(--deep);">
-                    <p><strong>Instagram:</strong> <a href="https://www.instagram.com/nutri_fodmap_marleneruivo"
-                            target="_blank" rel="noreferrer" style="color: var(--teal);">@nutri_fodmap_marleneruivo</a>
-                    </p>
-                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/marlene-ruivo-b2a2104a/"
-                            target="_blank" rel="noreferrer" style="color: var(--teal);">marlene-ruivo-b2a2104a</a></p>
-                    <p><strong>Consultas:</strong> Mafra · Lisboa · Sintra · Online</p>
-                </div>
-
-                <div class="hero-card"
-                    style="position: relative; inset: unset; box-shadow: none; background: var(--mint-soft); margin-top: 20px;">
-                    <div class="pill-icon" aria-hidden="true"
-                        style="background: var(--white); box-shadow: 0 8px 18px rgba(12, 78, 68, 0.12);">
-                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.5 7.5c0-1.657 1.343-3 3-3h2a3 3 0 0 1 3 3v9a2.5 2.5 0 1 1-5 0v-7"
-                                stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" />
-                        </svg>
-                    </div>
-                    <div>
-                        <div class="muted-label" style="color: var(--teal);">Suporte contínuo</div>
-                        <strong>Check-ins e acompanhamento entre consultas</strong>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Locais, Horários e Condições -->
-            <section id="locais" style="margin-top: 60px; margin-bottom: 60px;">
-                <h3
-                    style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 24px;">
-                    Locais, Horários e Condições</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;">
-                    <!-- Card 1 -->
-                    <div class="card" style="padding: 24px; background: var(--mint-soft); border: none;">
-                        <h4
-                            style="color: var(--teal); font-size: 0.9rem; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">
-                            Segunda-Feira</h4>
-                        <p style="font-weight: 600; margin-bottom: 8px;">Clínica Hygeia · Mafra</p>
-                        <p style="color: var(--muted); margin-bottom: 16px;">9:00 - 13:00</p>
-                        <p style="font-size: 0.9rem; color: var(--deep);">1ª consulta: 60€</p>
-                        <p style="font-size: 0.9rem; color: var(--deep);">Acompanhamento: 50€</p>
-                    </div>
-                    <!-- Card 2 -->
-                    <div class="card" style="padding: 24px; border: 1px solid #eee;">
-                        <h4
-                            style="color: var(--teal); font-size: 0.9rem; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">
-                            Terça-Feira</h4>
-                        <p style="font-weight: 600; margin-bottom: 8px;">Instituto Bettencourt - Saúde Integrativa ·
-                            Lisboa</p>
-                        <p style="color: var(--muted); margin-bottom: 16px;">9:00 - 16:00</p>
-                        <p style="font-size: 0.9rem; color: var(--deep);">1ª consulta: 60€</p>
-                        <p style="font-size: 0.9rem; color: var(--deep);">Acompanhamento: 60€</p>
-                    </div>
-                    <!-- Card 3 -->
-                    <div class="card" style="padding: 24px; border: 1px solid #eee;">
-                        <h4
-                            style="color: var(--teal); font-size: 0.9rem; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">
-                            Quarta-Feira</h4>
-                        <p style="font-weight: 600; margin-bottom: 8px;">Clínica Sousi · Sintra</p>
-                        <p style="color: var(--muted); margin-bottom: 16px;">9:00 - 17:00</p>
-                        <p style="font-size: 0.9rem; color: var(--deep);">1ª consulta: 60€</p>
-                        <p style="font-size: 0.9rem; color: var(--deep);">Acompanhamento: 50€</p>
-                    </div>
-                    <!-- Card 4 -->
-                    <div class="card" style="padding: 24px; background: var(--mint-soft); border: none;">
-                        <h4
-                            style="color: var(--teal); font-size: 0.9rem; font-weight: 700; margin-bottom: 16px; text-transform: uppercase;">
-                            Online</h4>
-                        <p style="font-weight: 600; margin-bottom: 8px;">Horário flexível (agenda partilhada)</p>
-                        <p style="color: var(--muted); margin-bottom: 16px;">Disponibilidade por marcação</p>
-                        <p style="font-size: 0.9rem; color: var(--deep);">1ª consulta: 60€</p>
-                        <p style="font-size: 0.9rem; color: var(--deep);">Acompanhamento: 50€</p>
-                    </div>
-                </div>
-                <p style="margin-top: 24px; font-size: 0.9rem; color: var(--muted); line-height: 1.6;">
-                    Se não tiver agenda conciliável, é possível agendar videochamada noutra data mediante
-                    disponibilidade. Também priorizamos ajustes para novos horários diários sempre que possível.
-                </p>
-            </section>
-
-            <!-- Booking Widget with Payment -->
-            <div style="text-align: center; padding: 60px 20px 20px;">
-                <div
-                    style="width: 64px; height: 64px; background: var(--mint-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
-                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M8 2v3M16 2v3M3.5 9.09h17M21 8.5V17c0 3-1.5 5-5 5H8c-3.5 0-5-2-5-5V8.5c0-3 1.5-5 5-5h8c3.5 0 5 2 5 5Z"
-                            stroke="#0f766e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </div>
-                <h3 style="margin-bottom: 10px;">Agende a sua consulta</h3>
-                <p style="color: var(--muted); margin-bottom: 32px;">Escolha o melhor horário diretamente na nossa
-                    agenda.</p>
-
-                <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0d..."
-                    style="border: 0; width: 100%; height: 600px; border-radius: 12px; background: #f9f9f9; margin-bottom: 40px;"
-                    frameborder="0" title="Agenda de Consultas">
-                </iframe>
-
-                <!-- Payment Toggle Button -->
-                <button id="show-payment-btn" class="btn" style="margin-bottom: 20px;">
-                    Já realizei o agendamento, quero pagar
-                </button>
-
-                <!-- Payment Info Block (Hidden by default) -->
-                <div id="payment-section"
-                    style="display: none; background: var(--mint-bg); padding: 24px; border-radius: 12px; margin-bottom: 32px; text-align: left; border: 1px solid rgba(15, 118, 110, 0.15); max-width: 600px; margin-left: auto; margin-right: auto; animation: fadeIn 0.5s ease;">
-                    <h4
-                        style="color: var(--teal); margin: 0 0 16px; display: flex; align-items: center; gap: 8px; font-size: 1.05rem;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"
-                                fill="currentColor" />
-                        </svg>
-                        Pagamento via MB WAY
-                    </h4>
-
-                    <div id="mbway-form">
-                        <!-- Amount Selection -->
-                        <div style="margin-bottom: 16px;">
-                            <p style="margin: 0 0 8px; font-size: 0.9rem; font-weight: 600; color: var(--deep);">Valor
-                                da
-                                Consulta:</p>
-                            <div style="display: flex; gap: 16px;">
-                                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
-                                    <input type="radio" name="amount" value="60.00" checked
-                                        style="accent-color: var(--teal);">
-                                    <span style="color: var(--text);">60€ (Primeira Consulta)</span>
-                                </label>
-                                <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
-                                    <input type="radio" name="amount" value="50.00" style="accent-color: var(--teal);">
-                                    <span style="color: var(--text);">50€ (Seguimento)</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <p style="margin: 0 0 12px; font-size: 0.9rem; color: var(--muted);">Insira o seu número de
-                            telemóvel
-                            para receber o pedido de pagamento na app MB WAY.</p>
-                        <div style="display: flex; gap: 10px; margin-bottom: 12px;">
-                            <input type="tel" id="mbway-phone" placeholder="Nº Telemóvel"
-                                style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
-                            <button id="mbway-pay-btn" class="btn"
-                                style="padding: 10px 20px; font-size: 0.9rem; white-space: nowrap;">Pagar</button>
-                        </div>
-                        <div id="mbway-status" style="font-size: 0.85rem; min-height: 20px;"></div>
-                    </div>
-                </div>
-
-                <script>
-                    // Update iframe src with the correct link provided by user
-                    document.querySelector('iframe[title="Agenda de Consultas"]').src = "https://calendar.app.google/ssACiBuaoJ74o6cp8?gv=true";
-
-                    // Toggle Payment Section
-                    const showPaymentBtn = document.getElementById('show-payment-btn');
-                    const paymentSection = document.getElementById('payment-section');
-
-                    if (showPaymentBtn && paymentSection) {
-                        showPaymentBtn.addEventListener('click', () => {
-                            paymentSection.style.display = 'block';
-                            showPaymentBtn.style.display = 'none';
-                            // Smooth scroll to payment section
-                            paymentSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        });
-                    }
-
-                    // MB WAY Payment Logic
-                    const payBtn = document.getElementById('mbway-pay-btn');
-                    const phoneInput = document.getElementById('mbway-phone');
-                    const statusDiv = document.getElementById('mbway-status');
-
-                    if (payBtn) {
-                        payBtn.addEventListener('click', async () => {
-                            const phone = phoneInput.value.trim();
-                            const selectedAmount = document.querySelector('input[name="amount"]:checked').value;
-
-                            if (!phone || phone.length < 9) {
-                                statusDiv.innerHTML = '<span style="color: #e11d48;">Por favor insira um número válido.</span>';
-                                return;
-                            }
-
-                            payBtn.disabled = true;
-                            payBtn.textContent = 'A processar...';
-                            statusDiv.innerHTML = '<span style="color: var(--teal);">A comunicar com a Ifthenpay...</span>';
-
-                            try {
-                                const response = await fetch('/api/mbway', {
-                                    method: 'POST',
-                                    headers: { 'Content-Type': 'application/json' },
-                                    body: JSON.stringify({
-                                        phoneNumber: phone,
-                                        amount: selectedAmount,
-                                        email: 'cliente@exemplo.com'
-                                    })
-                                });
-
-                                const data = await response.json();
-
-                                if (data.Estado === '000') {
-                                    statusDiv.innerHTML = '<span style="color: #059669; font-weight: 600;">Pedido enviado! Verifique a sua app MB WAY.</span>';
-                                } else {
-                                    // Show specific error from backend if available
-                                    const errorMsg = data.MsgDescricao || data.error || (data.details ? data.details : 'Falha no pedido');
-                                    statusDiv.innerHTML = '<span style="color: #e11d48;">Erro: ' + errorMsg + '</span>';
-                                    payBtn.disabled = false;
-                                    payBtn.textContent = 'Pagar';
-                                }
-                            } catch (err) {
-                                console.error(err);
-                                statusDiv.innerHTML = '<span style="color: #e11d48;">Erro de comunicação. Tente novamente.</span>';
-                                payBtn.disabled = false;
-                                payBtn.textContent = 'Pagar';
-                            }
-                        });
-                    }
-                </script>
-            </div>
-        </section>
-
-        <section id="manifesto" class="manifesto-section">
-            <div class="manifesto-content">
-                <img src="Assets/logo.png" alt="Marlene Ruivo Logo" class="manifesto-logo">
-                <blockquote>"Devolver o prazer de comer e a liberdade de viver."</blockquote>
-                <div class="gallery-grid">
-                    <img src="Assets/fotoprofissional.jpg" alt="Marlene Ruivo Profissional">
-                    <img src="Assets/Foto Marlene 1.png" alt="Marlene Ruivo 1">
-                    <img src="Assets/Foto Marlene 2.png" alt="Marlene Ruivo 2">
-                    <img src="Assets/Foto Marlene 3.png" alt="Marlene Ruivo 3">
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <img src="https://raw.githubusercontent.com/samuelrolo/Marlene.Ruivo/main/Assets/logo.png"
-                    alt="Logótipo Marlene Ruivo Gut Health Clinic com fundo transparente">
-                <div>
-                    <p style="color: var(--deep); font-weight: 700;">Marlene Ruivo Gut Health Clinic</p>
-                    <p class="subtitle" style="color: var(--muted);">Nutrição intestinal, dieta FODMAP e gestão de
-                        sintomas
-                        gastrointestinais.</p>
-                </div>
-            </div>
-            <div class="socials" aria-label="Redes sociais e contacto">
-                <a href="https://www.instagram.com/nutri_fodmap_marleneruivo/" aria-label="Instagram" target="_blank"
-                    rel="noreferrer">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M7.5 4h9A3.5 3.5 0 0 1 20 7.5v9a3.5 3.5 0 0 1-3.5 3.5h-9A3.5 3.5 0 0 1 4 16.5v-9A3.5 3.5 0 0 1 7.5 4Z"
-                            stroke="var(--teal)" stroke-width="1.6" />
-                        <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0-6 0Z" stroke="var(--teal)" stroke-width="1.6" />
-                        <circle cx="16.5" cy="7.5" r="0.9" fill="var(--teal)" />
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/marlene-ruivo-b2a2104a/" aria-label="LinkedIn" target="_blank"
-                    rel="noreferrer">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.5 10v7" stroke="var(--teal)" stroke-width="1.6" stroke-linecap="round" />
-                        <circle cx="6.5" cy="6.5" r="1.4" fill="var(--teal)" />
-                        <path d="M11 10v7m0-5c0-1.2.9-2.2 2.1-2.2c1.2 0 2.4.8 2.4 2.6V17" stroke="var(--teal)"
-                            stroke-width="1.6" stroke-linecap="round" />
-                    </svg>
-                </a>
-                <a href="mailto:marleneruivonutricao@gmail.com" aria-label="Email">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4.5 6.5h15v11h-15v-11Z" stroke="var(--teal)" stroke-width="1.6" />
-                        <path d="M4.5 8 12 12.5 19.5 8" stroke="var(--teal)" stroke-width="1.6"
-                            stroke-linecap="round" />
-                    </svg>
-                </a>
-            </div>
-            <small style="color: var(--muted);">© 2025 Marlene Ruivo. Informação educacional, não substitui
-                acompanhamento
-                médico individualizado. Política de privacidade e cookies em conformidade com RGPD e legislação
-                portuguesa.</small>
-        </div>
-    </footer>
-
-    <div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
-        <div class="cookie-content">
-            <p><strong>Cookies essenciais e de medição.</strong> Usamos cookies necessários para o funcionamento do
-                site e,
-                apenas com o seu consentimento, cookies de medição anónima de audiência. Consulte a <a
-                    href="#politica-cookies">Política de Cookies</a> e o <a href="#politica-cookies">RGPD/Lei
-                    46/2012</a>
-                antes de
-                decidir.</p>
-            <div class="cookie-actions">
-                <button class="btn secondary" id="rejectCookies">Recusar opcionais</button>
-                <button class="btn" id="acceptCookies">Aceitar cookies</button>
-            </div>
-        </div>
+  <header>
+    <div class="nav-bar">
+      <a class="logo" href="#inicio" aria-label="Voltar ao início">
+        <img src="https://raw.githubusercontent.com/samuelrolo/MarleneRuivo/main/Marlene.png"
+          alt="Logótipo Marlene Ruivo Gut Health Clinic">
+      </a>
+      <nav aria-label="Navegação principal">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#consultas">Consultas</a></li>
+          <li><a href="#fodmap">FODMAP</a></li>
+          <li><a href="#sintomas">Sintomas</a></li>
+          <li><a href="#testemunhos">Testemunhos</a></li>
+          <li><a href="#receitas">Receitas</a></li>
+          <li><a href="#contactos">Contactos</a></li>
+        </ul>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn" href="#contactos">Marcar consulta</a>
+      </div>
     </div>
+  </header>
 
-    <section id="politica-cookies" style="max-width: 1200px; margin: 0 auto 60px; padding: 0 clamp(18px, 5vw, 36px);">
-        <div class="card" style="box-shadow: 0 12px 30px rgba(14, 78, 68, 0.08);">
-            <h3>Política de Cookies</h3>
-            <p>Este website usa cookies estritamente necessários para navegação e segurança. Apenas ativamos cookies
-                opcionais
-                de medição anónima após o seu consentimento, cumprindo o RGPD, a Lei 46/2012 e as orientações da CNPD.
-                Pode
-                consultar a nossa política completa para mais detalhes.</p>
+  <main id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <span class="eyebrow">Saúde intestinal • Dieta FODMAP</span>
+        <h1 id="hero-title">Nutrição especializada em saúde intestinal e dieta FODMAP</h1>
+        <p>Apoio clínico baseado em ciência para reduzir sintomas e recuperar o bem-estar digestivo. A Marlene
+          estreia-se como nutricionista freelance em dezembro de 2025, mantendo o acompanhamento próximo e humano que
+          marca a sua carreira.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#contactos">Agendar consulta</a>
+          <a class="btn secondary" href="#sobre">Saber mais</a>
         </div>
+      </div>
+      <div class="hero-figure" aria-hidden="true">
+        <img class="hero-portrait"
+          src="https://images.unsplash.com/photo-1528892952291-009c663ce843?auto=format&fit=crop&w=1000&q=80"
+          alt="Fotografia de nutricionista em consulta, no estilo de Marlene Ruivo" loading="lazy">
+        <div class="hero-card">
+          <div class="pill-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
+              aria-label="Ícone intestino">
+              <path d="M6 6c0-1.657 1.343-3 3-3h1c1.657 0 3 1.343 3 3v12a2 2 0 1 1-4 0V8" stroke="#0f766e"
+                stroke-width="1.8" stroke-linecap="round" />
+              <path d="M12 5h1a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-1" stroke="#0f766e" stroke-width="1.8"
+                stroke-linecap="round" />
+            </svg>
+          </div>
+          <div>
+            <div class="muted-label" style="color: var(--teal);">Monash Certified</div>
+            <strong>Plano FODMAP personalizado</strong>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <script>
-        const banner = document.querySelector('.cookie-banner');
-        const acceptBtn = document.getElementById('acceptCookies');
-        const rejectBtn = document.getElementById('rejectCookies');
-        const consentKey = 'marlene-cookie-consent';
+    <section id="sobre" aria-labelledby="sobre-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Sobre Marlene Ruivo</span>
+          <h2 id="sobre-title">Nutricionista especializada em saúde intestinal</h2>
+          <p class="subtitle">Sou a Marlene Ruivo, tenho 38 anos e sou Nutricionista há 15 anos, com uma forte
+            experiência na área da perda de peso e obesidade. Ao longo do meu percurso, percebi que muitas pessoas que
+            acompanhava carregavam não só desafios relacionados com o peso, mas também desconfortos intestinais
+            persistentes que afetavam profundamente o seu bem-estar e a sua qualidade de vida.</p>
+          <p class="subtitle">Esse reconhecimento despertou em mim uma curiosidade genuína — e rapidamente se
+            transformou numa paixão. Decidi aprofundar conhecimentos em saúde intestinal e formei-me em Dieta Low FODMAP
+            pela Monash University, dedicando-me desde então ao acompanhamento de pessoas com Síndrome do Intestino
+            Irritável (SII) e SIBO, e outros problemas gastrointestinais, ajudando-as a encontrar alívio, equilíbrio e
+            conforto através da nutrição.</p>
+          <p class="subtitle">Durante muitos anos trabalhei numa clínica privada, onde cresci profissionalmente e
+            acompanhei centenas de pessoas. Mas, ao fim de 15 anos, senti que precisava de dar um passo maior: criar o
+            meu próprio caminho, com tempo, foco e liberdade para me dedicar verdadeiramente à área que mais me inspira
+            — o intestino.</p>
+          <p class="subtitle">Hoje trabalho em nome individual, unindo ciência, experiência clínica e uma abordagem
+            profundamente humana. Acredito que a nutrição deve ser personalizada, empática e realista, e é com esse
+            compromisso que ajudo cada pessoa a recuperar a tranquilidade e o bem-estar que merece.</p>
+        </div>
+        <ul class="list-inline">
+          <li class="chip">SII &amp; SIBO</li>
+          <li class="chip">Gestão de sintomas</li>
+          <li class="chip">Planos personalizados</li>
+          <li class="chip">Consultas online</li>
+        </ul>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M7 7.5c0-2 1.6-3.5 3.5-3.5h3A3.5 3.5 0 0 1 17 7.5v9a3.5 3.5 0 0 1-3.5 3.5h-3A3.5 3.5 0 0 1 7 16.5V13"
+                stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M10 9v4c0 1.1.9 2 2 2h1" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>Atenção centrada na pessoa</h3>
+          <p>Plano que respeita sintomas, rotinas e preferências alimentares para avanços sustentáveis.</p>
+        </div>
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 5h8l1 4v2.5a5 5 0 0 1-5 5v0a5 5 0 0 1-5-5V9l1-4Z" stroke="#0f766e" stroke-width="1.6"
+                stroke-linecap="round" />
+              <path d="M9 17.5h6M12 5v-1.5" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>Acompanhamento próximo</h3>
+          <p>Consultas regulares, monitorização de sintomas e ajustes ágeis para manter o conforto digestivo.</p>
+        </div>
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7.5 10.5a4.5 4.5 0 0 1 9 0v3.3a3.2 3.2 0 0 1-3.2 3.2h-2.6a3.2 3.2 0 0 1-3.2-3.2v-3.3Z"
+                stroke="#0f766e" stroke-width="1.6" />
+              <path d="M12 7.5v2.2c0 .44-.36.8-.8.8H9.5" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>Educação alimentar</h3>
+          <p>Ferramentas práticas para reconhecer gatilhos, gerir recaídas e manter equilíbrio a longo prazo.</p>
+        </div>
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 6.5h7a3.5 3.5 0 0 1 3.5 3.5v6" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" />
+              <path d="M7 11.5c0-1.2 1-2.2 2.2-2.2h3.6c1.2 0 2.2 1 2.2 2.2v4.3a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-4.3Z"
+                stroke="#0f766e" stroke-width="1.6" />
+              <path d="M7 8.5V6a2 2 0 0 1 2-2h3" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>Experiência clínica consolidada</h3>
+          <p>Atuação contínua em SousaClínica (desde 2021) e Clínica do Tempo (desde 2014), agora aplicada numa prática
+            autónoma focada em saúde intestinal.</p>
+        </div>
+      </div>
+    </section>
 
+    <section id="consultas" aria-labelledby="consultas-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Consultas</span>
+          <h2 id="consultas-title">Planos clínicos focados em resultados</h2>
+          <p class="subtitle">A intervenção é pensada para aliviar sintomas, recuperar a tolerância alimentar e devolver
+            confiança ao dia a dia.</p>
+        </div>
+        <a class="btn secondary" href="#contactos">Marcar consulta</a>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="muted-label">Consulta de Nutrição Clínica</div>
+          <p>Avaliação completa, histórico clínico e plano nutricional alinhado ao tratamento médico.</p>
+        </div>
+        <div class="card">
+          <div class="muted-label">Acompanhamento FODMAP</div>
+          <p>Orientação certificada pela Monash para eliminar, reintroduzir e personalizar tolerâncias.</p>
+        </div>
+        <div class="card">
+          <div class="muted-label">Gestão de sintomas gastrointestinais</div>
+          <p>Estratégias para reduzir crises de dor, inchaço e desconforto, com protocolos ajustados.</p>
+        </div>
+        <div class="card">
+          <div class="muted-label">Planos personalizados</div>
+          <p>Rotinas alimentares práticas para SII, distensão abdominal e SIBO, adaptadas à sua agenda.</p>
+        </div>
+        <div class="card">
+          <div class="muted-label">Consultas online e presenciais</div>
+          <p>Flexibilidade para acompanhar cada fase, com suporte contínuo entre sessões.</p>
+        </div>
+      </div>
+      <div class="card" style="margin-top: 24px; box-shadow: 0 14px 34px rgba(14, 78, 68, 0.09);">
+        <div class="muted-label">Locais, horários e condições</div>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px;">
+          <div class="card" style="box-shadow: none; background: var(--mint-soft);">
+            <div class="muted-label" style="color: var(--teal);">Segunda-feira</div>
+            <strong>Clínica Hygeia · Mafra</strong>
+            <p>9:00 - 13:00</p>
+            <p>1ª consulta: 60€ · Acompanhamento: 50€</p>
+          </div>
+          <div class="card" style="box-shadow: none; background: var(--white);">
+            <div class="muted-label" style="color: var(--teal);">Terça-feira</div>
+            <strong>Instituto Bettencourt – Saúde Integrativa · Lisboa</strong>
+            <p>9:00 - 16:00</p>
+            <p>1ª consulta: 60€ · Acompanhamento: 50€</p>
+          </div>
+          <div class="card" style="box-shadow: none; background: var(--white);">
+            <div class="muted-label" style="color: var(--teal);">Quarta-feira</div>
+            <strong>Clínica Sousi · Sintra</strong>
+            <p>9:00 - 17:00</p>
+            <p>1ª consulta: 60€ · Acompanhamento: 50€</p>
+          </div>
+          <div class="card" style="box-shadow: none; background: var(--mint-soft);">
+            <div class="muted-label" style="color: var(--teal);">Online</div>
+            <strong>Horário flexível (agenda partilhada)</strong>
+            <p>Disponibilidade por marcação</p>
+            <p>1ª consulta: 60€ · Acompanhamento: 50€</p>
+          </div>
+        </div>
+        <p style="margin-top: 14px; color: var(--muted);">Se não tiver agenda conciliável, é possível agendar
+          videochamada noutra data mediante disponibilidade. Também priorizamos ajustes para novos horários diários
+          sempre que possível.</p>
+      </div>
+    </section>
+
+    <section id="fodmap" aria-labelledby="fodmap-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Dieta FODMAP</span>
+          <h2 id="fodmap-title">Ciência aplicada à sua rotina digestiva</h2>
+          <p class="subtitle">A dieta FODMAP reduz fermentação intestinal e melhora sintomas de SII quando guiada por
+            nutricionista certificado.</p>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 8c0-1.657 1.343-3 3-3h1c1.657 0 3 1.343 3 3v8a2 2 0 1 1-4 0v-7" stroke="#0f766e"
+                stroke-width="1.6" stroke-linecap="round" />
+              <path d="M12 7h1a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-1" stroke="#0f766e" stroke-width="1.6"
+                stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>O que é</h3>
+          <p>Plano estruturado em fases: eliminação, reintrodução e personalização dos FODMAPs.</p>
+        </div>
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 12c0-2.21 1.79-4 4-4h2a4 4 0 0 1 4 4v3a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3v-3Z" stroke="#0f766e"
+                stroke-width="1.6" stroke-linecap="round" />
+              <path d="M10 11.5a2 2 0 0 1 2-2h0" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>Para que serve</h3>
+          <p>Reduz gases, dor abdominal, distensão e oscilações entre diarreia e obstipação.</p>
+        </div>
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.5 6.5H12a3.5 3.5 0 0 1 3.5 3.5v6.5a2.5 2.5 0 1 1-5 0V10" stroke="#0f766e" stroke-width="1.6"
+                stroke-linecap="round" />
+              <path d="M9 14h3" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>Quando funciona</h3>
+          <p>Resultados em poucas semanas quando aplicada com rigor e acompanhada por profissional.</p>
+        </div>
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 7.5c0-1.657 1.343-3 3-3h2c1.657 0 3 1.343 3 3v8.5a3 3 0 1 1-6 0v-7" stroke="#0f766e"
+                stroke-width="1.6" stroke-linecap="round" />
+              <path d="M12 7h1.5a2.5 2.5 0 0 1 2.5 2.5V12" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" />
+            </svg>
+          </div>
+          <h3>Porque exige acompanhamento</h3>
+          <p>Evita carências nutricionais, identifica gatilhos específicos e mantém equilíbrio alimentar.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sintomas" aria-labelledby="sintomas-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Sintomas</span>
+          <h2 id="sintomas-title">Alívio direcionado para os sinais mais comuns</h2>
+          <p class="subtitle">Identificamos padrões de sintomas, gatilhos alimentares e estratégias de gestão que cabem
+            no seu dia.</p>
+        </div>
+      </div>
+      <div class="symptoms">
+        <div class="grid">
+          <div class="card">
+            <div class="icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 7.5c0-1.657 1.343-3 3-3h1a3 3 0 0 1 3 3v8a2.5 2.5 0 0 1-5 0V9" stroke="#0f766e"
+                  stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Dor abdominal</h3>
+            <p>Protocolos de alívio imediato e estratégias de longo prazo para regular a motilidade.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 6.5h3a3.5 3.5 0 0 1 3.5 3.5v4.5a2.5 2.5 0 1 1-5 0V9" stroke="#0f766e" stroke-width="1.6"
+                  stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Inchaço</h3>
+            <p>Redução de fermentação com escolhas low-FODMAP e gestão de fibras.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 6.5h2.5a3.5 3.5 0 0 1 3.5 3.5v4a3 3 0 0 1-3 3h-3" stroke="#0f766e" stroke-width="1.6"
+                  stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Cólica</h3>
+            <p>Planos que minimizam gatilhos e ajustam combinações alimentares para conforto digestivo.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5 7c0-1.657 1.343-3 3-3h1a3 3 0 0 1 3 3v8.5a2.5 2.5 0 0 1-5 0v-7" stroke="#0f766e"
+                  stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Diarreia</h3>
+            <p>Protocolos de estabilização com foco na hidratação, eletrólitos e alimentos bem tolerados.</p>
+          </div>
+          <div class="card">
+            <div class="icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.5 6h2a3.5 3.5 0 0 1 3.5 3.5v5a3 3 0 0 1-3 3H9" stroke="#0f766e" stroke-width="1.6"
+                  stroke-linecap="round" />
+              </svg>
+            </div>
+            <h3>Obstipação</h3>
+            <p>Gestão de fibras, hidratação, psicobióticos e rotina alimentar para regularidade.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testemunhos" aria-labelledby="testemunhos-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Testemunhos</span>
+          <h2 id="testemunhos-title">Resultados sentidos no dia a dia</h2>
+          <p class="subtitle">Relatos de quem recuperou conforto digestivo com acompanhamento próximo.</p>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="testimonial" aria-label="Testemunho da Ana">
+          <div class="muted-label" style="color: var(--teal);">Ana, 32 anos</div>
+          <p>“Em poucas semanas consegui identificar os alimentos que pioravam o meu SII. O plano foi prático e
+            respeitou a minha rotina. Hoje tenho energia e confiança para voltar a sair.”</p>
+        </article>
+        <article class="testimonial" aria-label="Testemunho do Ricardo">
+          <div class="muted-label" style="color: var(--teal);">Ricardo, 41 anos</div>
+          <p>“A fase de reintrodução foi decisiva. Com a orientação da Marlene reaprendi a comer sem receio de crises.
+            Os sintomas de inchaço diminuíram imenso.”</p>
+        </article>
+        <article class="testimonial" aria-label="Testemunho da Sofia">
+          <div class="muted-label" style="color: var(--teal);">Sofia, 28 anos</div>
+          <p>“Precisei de apoio para SIBO e FODMAP em simultâneo. Recebi um plano claro, com check-ins frequentes e
+            estratégias para lidar com recaídas.”</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="receitas" aria-labelledby="receitas-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Receitas e Recursos</span>
+          <h2 id="receitas-title">Conteúdos inspirados no Instagram</h2>
+          <p class="subtitle">Guias visuais, receitas low-FODMAP e artigos práticos para aplicar já.</p>
+        </div>
+        <a class="btn secondary" href="#contactos">Ver agenda</a>
+      </div>
+      <div class="grid">
+        <div class="resource-card">
+          <div class="muted-label">Receitas low-FODMAP</div>
+          <p>Pratos rápidos, tábuas de snacks e combinações seguras para o intestino.</p>
+        </div>
+        <div class="resource-card">
+          <div class="muted-label">Artigos informativos</div>
+          <p>Como interpretar rótulos, escolher fibras e alinhar a alimentação a exames clínicos.</p>
+        </div>
+        <div class="resource-card">
+          <div class="muted-label">Mitos e verdades</div>
+          <p>Desmistificação de restrições, lactose, glúten e suplementação em SII.</p>
+        </div>
+        <div class="resource-card">
+          <div class="muted-label">Psicobióticos</div>
+          <p>Ligação intestino-cérebro, probióticos específicos e como introduzi-los.</p>
+        </div>
+        <div class="resource-card">
+          <div class="muted-label">Guias práticos</div>
+          <p>Listas de compras, gestão de refeições fora de casa e reintrodução faseada.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contactos" aria-labelledby="contactos-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Contactos e Marcações</span>
+          <h2 id="contactos-title">Comece a cuidar do seu intestino</h2>
+          <p class="subtitle">Envie uma mensagem ou agende a primeira consulta. Respondemos com brevidade.</p>
+        </div>
+      </div>
+      <div class="contact">
+        <!-- Booking Widget -->
+        <div id="booking-widget"
+          style="background: var(--white); padding: 20px; border-radius: 16px; box-shadow: var(--shadow); border: 1px solid rgba(15, 118, 110, 0.08);">
+          <div style="text-align: center; padding: 40px 20px;">
+            <div
+              style="width: 64px; height: 64px; background: var(--mint-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M8 2v3M16 2v3M3.5 9.09h17M21 8.5V17c0 3-1.5 5-5 5H8c-3.5 0-5-2-5-5V8.5c0-3 1.5-5 5-5h8c3.5 0 5 2 5 5Z"
+                  stroke="#0f766e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h3 style="margin-bottom: 10px;">Agende a sua consulta</h3>
+            <p style="color: var(--muted); margin-bottom: 24px;">Escolha o melhor horário diretamente na nossa agenda.
+            </p>
+
+            <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0d..."
+              style="border: 0; width: 100%; height: 600px; border-radius: 12px; background: #f9f9f9;" frameborder="0"
+              title="Agenda de Consultas">
+            </iframe>
+
+            <script>
+              // Update iframe src with the correct link provided by user
+              document.querySelector('iframe[title="Agenda de Consultas"]').src = "https://calendar.app.google/ssACiBuaoJ74o6cp8?gv=true";
+            </script>
+          </div>
+        </div>
+        <div class="card" style="gap: 12px;">
+          <div class="muted-label">Contactos diretos</div>
+          <p><strong>Email:</strong> <a href="mailto:marleneruivonuticao@gmail.com">marleneruivonuticao@gmail.com</a>
+          </p>
+          <p><strong>Instagram:</strong> <a href="https://www.instagram.com/nutri_fodmap_marleneruivo" target="_blank"
+              rel="noreferrer">@nutri_fodmap_marleneruivo</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/marlene-ruivo-b2a2104a/" target="_blank"
+              rel="noreferrer">marlene-ruivo-b2a2104a</a></p>
+          <p><strong>Consultas:</strong> Mafra · Lisboa · Sintra · Online</p>
+          <div class="hero-card"
+            style="position: relative; inset: unset; box-shadow: none; background: var(--mint-soft);">
+            <div class="pill-icon" aria-hidden="true"
+              style="background: var(--white); box-shadow: 0 8px 18px rgba(12, 78, 68, 0.12);">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.5 7.5c0-1.657 1.343-3 3-3h2a3 3 0 0 1 3 3v9a2.5 2.5 0 1 1-5 0v-7" stroke="#0f766e"
+                  stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <div class="muted-label" style="color: var(--teal);">Suporte contínuo</div>
+              <strong>Check-ins e acompanhamento entre consultas</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="https://raw.githubusercontent.com/samuelrolo/MarleneRuivo/main/Marlene.png"
+          alt="Logótipo Marlene Ruivo Gut Health Clinic com fundo transparente">
+        <div>
+          <p style="color: var(--deep); font-weight: 700;">Marlene Ruivo Gut Health Clinic</p>
+          <p class="subtitle" style="color: var(--muted);">Nutrição intestinal, dieta FODMAP e gestão de sintomas
+            gastrointestinais.</p>
+        </div>
+      </div>
+      <div class="socials" aria-label="Redes sociais e contacto">
+        <a href="https://www.instagram.com/nutri_fodmap_marleneruivo/" aria-label="Instagram" target="_blank"
+          rel="noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M7.5 4h9A3.5 3.5 0 0 1 20 7.5v9a3.5 3.5 0 0 1-3.5 3.5h-9A3.5 3.5 0 0 1 4 16.5v-9A3.5 3.5 0 0 1 7.5 4Z"
+              stroke="var(--teal)" stroke-width="1.6" />
+            <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0-6 0Z" stroke="var(--teal)" stroke-width="1.6" />
+            <circle cx="16.5" cy="7.5" r="0.9" fill="var(--teal)" />
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/marlene-ruivo-b2a2104a/" aria-label="LinkedIn" target="_blank"
+          rel="noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.5 10v7" stroke="var(--teal)" stroke-width="1.6" stroke-linecap="round" />
+            <circle cx="6.5" cy="6.5" r="1.4" fill="var(--teal)" />
+            <path d="M11 10v7m0-5c0-1.2.9-2.2 2.1-2.2c1.2 0 2.4.8 2.4 2.6V17" stroke="var(--teal)" stroke-width="1.6"
+              stroke-linecap="round" />
+          </svg>
+        </a>
+        <a href="mailto:marleneruivonuticao@gmail.com" aria-label="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.5 6.5h15v11h-15v-11Z" stroke="var(--teal)" stroke-width="1.6" />
+            <path d="M4.5 8 12 12.5 19.5 8" stroke="var(--teal)" stroke-width="1.6" stroke-linecap="round" />
+          </svg>
+        </a>
+      </div>
+      <small style="color: var(--muted);">© 2025 Marlene Ruivo. Informação educacional, não substitui acompanhamento
+        médico individualizado. Política de privacidade e cookies em conformidade com RGPD e legislação
+        portuguesa.</small>
+    </div>
+  </footer>
+
+  <div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
+    <div class="cookie-content">
+      <p><strong>Cookies essenciais e de medição.</strong> Usamos cookies necessários para o funcionamento do site e,
+        apenas com o seu consentimento, cookies de medição anónima de audiência. Consulte a <a
+          href="#politica-cookies">Política de Cookies</a> e o <a href="#politica-cookies">RGPD/Lei 46/2012</a> antes de
+        decidir.</p>
+      <div class="cookie-actions">
+        <button class="btn secondary" id="rejectCookies">Recusar opcionais</button>
+        <button class="btn" id="acceptCookies">Aceitar cookies</button>
+      </div>
+    </div>
+  </div>
+
+  <section id="politica-cookies" style="max-width: 1200px; margin: 0 auto 60px; padding: 0 clamp(18px, 5vw, 36px);">
+    <div class="card" style="box-shadow: 0 12px 30px rgba(14, 78, 68, 0.08);">
+      <h3>Política de Cookies</h3>
+      <p>Este website usa cookies estritamente necessários para navegação e segurança. Apenas ativamos cookies opcionais
+        de medição anónima após o seu consentimento, cumprindo o RGPD, a Lei 46/2012 e as orientações da CNPD. Pode
         const applyConsent = (status) => {
-            localStorage.setItem(consentKey, status);
-            banner.style.display = 'none';
-            // Placeholder para cookies opcionais futuros (analytics, etc.)
-            if (status === 'accepted') {
-                document.documentElement.dataset.analytics = 'enabled';
-            } else {
-                document.documentElement.dataset.analytics = 'disabled';
-            }
+        localStorage.setItem(consentKey, status);
+        banner.style.display = 'none';
+        // Placeholder para cookies opcionais futuros (analytics, etc.)
+        if (status === 'accepted') {
+        document.documentElement.dataset.analytics = 'enabled';
+        } else {
+        document.documentElement.dataset.analytics = 'disabled';
+        }
         };
 
         const stored = localStorage.getItem(consentKey);
         if (stored) {
-            applyConsent(stored);
+        applyConsent(stored);
         } else {
-            banner.style.display = 'block';
+        banner.style.display = 'block';
         }
 
         acceptBtn?.addEventListener('click', () => applyConsent('accepted'));
         rejectBtn?.addEventListener('click', () => applyConsent('rejected'));
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.expandable-card');
-
-            cards.forEach(card => {
-                const header = card.querySelector('.card-header');
-                const content = card.querySelector('.card-content');
-
-                header.addEventListener('click', () => {
-                    const isExpanded = card.classList.contains('expanded');
-
-                    // Close all other cards
-                    cards.forEach(otherCard => {
-                        if (otherCard !== card && otherCard.classList.contains('expanded')) {
-                            otherCard.classList.remove('expanded');
-                            otherCard.querySelector('.card-header').setAttribute('aria-expanded', 'false');
-                            otherCard.querySelector('.card-content').style.maxHeight = null;
-                        }
-                    });
-
-                    // Toggle current card
-                    card.classList.toggle('expanded');
-                    header.setAttribute('aria-expanded', !isExpanded);
-
-                    if (!isExpanded) {
-                        content.style.maxHeight = content.scrollHeight + "px";
-                    } else {
-                        content.style.maxHeight = null;
-                    }
-                });
-
-                // Keyboard accessibility
-                header.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        header.click();
-                    }
-                });
-            });
-        });
-    </script>
+        </script>
 </body>
 
 </html>
