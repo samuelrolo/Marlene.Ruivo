@@ -620,6 +620,74 @@
       display: block;
       margin-bottom: 6px;
     }
+
+    /* Manifesto Section */
+    .manifesto-section {
+      background-color: #11423d;
+      /* Darker teal/green */
+      color: var(--white);
+      border-radius: 28px;
+      padding: clamp(40px, 8vw, 80px) clamp(24px, 5vw, 48px);
+      text-align: center;
+      margin: clamp(60px, 12vw, 120px) 0;
+    }
+
+    .manifesto-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .manifesto-logo {
+      width: 140px;
+      height: auto;
+      filter: brightness(0) invert(1);
+      /* Make logo white */
+      opacity: 0.9;
+    }
+
+    .manifesto-section blockquote {
+      font-family: 'Manrope', serif;
+      /* Using Manrope as base, but could be serif if imported */
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.3;
+      margin: 0 0 24px;
+      max-width: 800px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      width: 100%;
+      margin-top: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      /* Square photos */
+      object-fit: cover;
+      border-radius: 16px;
+      border: 4px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.02);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
   </style>
 </head>
 
@@ -738,18 +806,13 @@
             <div>
               <strong style="display: block; color: var(--deep);">Nutricionista</strong>
               <span style="color: var(--teal); font-size: 0.9rem; font-weight: 600;">Clínica do Tempo</span>
-              <div style="color: var(--muted); font-size: 0.9rem;">Set 2014 - Presente</div>
+              <div style="color: var(--muted); font-size: 0.9rem;">Ago 2012 - Nov 2013 • Set 2014 - Presente</div>
             </div>
             <div>
               <strong style="display: block; color: var(--deep);">Nutricionista</strong>
               <span style="color: var(--teal); font-size: 0.9rem; font-weight: 600;">Colégio Verde Água</span>
               <div style="color: var(--muted); font-size: 0.9rem;">Set 2017 - Presente</div>
               <p style="font-size: 0.9rem; margin-top: 4px;">Realização de ementas e fichas técnicas.</p>
-            </div>
-            <div>
-              <strong style="display: block; color: var(--deep);">Nutricionista</strong>
-              <span style="color: var(--teal); font-size: 0.9rem; font-weight: 600;">Clínica do Tempo</span>
-              <div style="color: var(--muted); font-size: 0.9rem;">Ago 2012 - Nov 2013</div>
             </div>
             <div>
               <strong style="display: block; color: var(--deep);">Nutricionista</strong>
@@ -769,6 +832,10 @@
             Formação e Certificações
           </h3>
           <div style="display: grid; gap: 20px;">
+            <div>
+              <strong style="display: block; color: var(--deep);">SIBO na Prática Clinica</strong>
+              <div style="color: var(--muted); font-size: 0.9rem;">2025</div>
+            </div>
             <div>
               <strong style="display: block; color: var(--deep);">Licenciatura em Ciências da Nutrição</strong>
               <span style="color: var(--teal); font-size: 0.9rem; font-weight: 600;">Universidade Atlântica</span>
@@ -1442,6 +1509,21 @@
         </div>
       </div>
     </section>
+    </section>
+
+    <section id="manifesto" class="manifesto-section">
+      <div class="manifesto-content">
+        <img src="Assets/logo.png" alt="Marlene Ruivo Logo" class="manifesto-logo">
+        <blockquote>"Devolver o prazer de comer e a liberdade de viver."</blockquote>
+        <div class="gallery-grid">
+          <img src="Assets/fotoprofissional.jpg" alt="Marlene Ruivo Profissional">
+          <img src="Assets/Foto Marlene 1.png" alt="Marlene Ruivo 1">
+          <img src="Assets/Foto Marlene 2.png" alt="Marlene Ruivo 2">
+          <img src="Assets/Foto Marlene 3.png" alt="Marlene Ruivo 3">
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
