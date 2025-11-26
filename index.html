@@ -538,6 +538,88 @@
         position: sticky;
       }
     }
+
+    /* Expandable Card Styles */
+    .expandable-card {
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15, 118, 110, 0.06);
+      overflow: hidden;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    .expandable-card.expanded {
+      box-shadow: 0 20px 50px rgba(15, 118, 110, 0.15);
+      border-color: rgba(15, 118, 110, 0.2);
+    }
+
+    .card-header {
+      padding: 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .card-header h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--teal);
+    }
+
+    .card-toggle-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      color: var(--teal);
+      transition: transform 0.3s ease;
+    }
+
+    .expandable-card.expanded .card-toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .card-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      background: var(--cloud);
+    }
+
+    .card-content-inner {
+      padding: 0 24px 24px;
+      border-top: 1px solid rgba(15, 118, 110, 0.08);
+      padding-top: 24px;
+    }
+
+    .card-content h4 {
+      font-size: 1rem;
+      color: var(--deep);
+      margin: 0 0 12px;
+    }
+
+    .recipe-block,
+    .article-block {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(15, 118, 110, 0.1);
+    }
+
+    .recipe-block:last-child,
+    .article-block:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .recipe-title {
+      font-weight: 700;
+      color: var(--teal);
+      display: block;
+      margin-bottom: 6px;
+    }
   </style>
 </head>
 
@@ -1084,27 +1166,217 @@
         </div>
         <a class="btn secondary" href="#contactos">Ver agenda</a>
       </div>
-      <div class="grid">
-        <div class="resource-card">
-          <div class="muted-label">Receitas low-FODMAP</div>
-          <p>Pratos rápidos, tábuas de snacks e combinações seguras para o intestino.</p>
-        </div>
-        <div class="resource-card">
-          <div class="muted-label">Artigos informativos</div>
-          <p>Como interpretar rótulos, escolher fibras e alinhar a alimentação a exames clínicos.</p>
-        </div>
-        <div class="resource-card">
-          <div class="muted-label">Mitos e verdades</div>
-          <p>Desmistificação de restrições, lactose, glúten e suplementação em SII.</p>
-        </div>
-        <div class="resource-card">
-          <div class="muted-label">Psicobióticos</div>
-          <p>Ligação intestino-cérebro, probióticos específicos e como introduzi-los.</p>
-        </div>
-        <div class="resource-card">
-          <div class="muted-label">Guias práticos</div>
-          <p>Listas de compras, gestão de refeições fora de casa e reintrodução faseada.</p>
-        </div>
+      <div class="grid-2-cols">
+
+        <!-- Card 1: Receitas -->
+        <article class="expandable-card">
+          <div class="card-header" role="button" aria-expanded="false" aria-controls="content-receitas" tabindex="0">
+            <div>
+              <h3>RECEITAS LOW FODMAP</h3>
+              <p>Pratos rápidos, snacks e combinações seguras para o intestino.</p>
+            </div>
+            <svg class="card-toggle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="card-content" id="content-receitas">
+            <div class="card-content-inner">
+              <h4>Receitas low FODMAP</h4>
+              <p style="margin-bottom: 20px;">Três sugestões simples, rápidas e seguras para o intestino, pensadas para
+                quem segue a estratégia low FODMAP.</p>
+
+              <div class="recipe-block">
+                <span class="recipe-title">1. Tigela morna de frango com arroz e legumes</span>
+                <p><strong>Ingredientes:</strong> arroz basmati, peito de frango, cenoura, abóbora, azeite e ervas
+                  aromáticas.</p>
+                <p><strong>Preparação:</strong> saltear o frango em azeite, juntar legumes cozidos e servir com arroz.
+                </p>
+                <p><strong>Porque funciona:</strong> combinação pobre em FODMAPs, digestão leve, ideal para dias de
+                  maior sensibilidade.</p>
+              </div>
+
+              <div class="recipe-block">
+                <span class="recipe-title">2. Tábua low FODMAP de snacks</span>
+                <p><strong>Descrição:</strong> Inclui morangos, uvas, queijo curado sem lactose, bolachas sem glúten,
+                  cenoura crua e nozes.</p>
+                <p><strong>Porque funciona:</strong> fornece saciedade sem desencadear fermentação excessiva.</p>
+              </div>
+
+              <div class="recipe-block">
+                <span class="recipe-title">3. Panquecas de aveia low FODMAP</span>
+                <p><strong>Ingredientes:</strong> aveia certificada sem glúten, ovo, bebida vegetal de arroz e canela.
+                </p>
+                <p><strong>Preparação:</strong> triturar tudo e cozinhar em frigideira antiaderente.</p>
+                <p><strong>Porque funciona:</strong> fonte estável de hidratos, boa tolerância digestiva e energia
+                  sustentável.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2: Artigos -->
+        <article class="expandable-card">
+          <div class="card-header" role="button" aria-expanded="false" aria-controls="content-artigos" tabindex="0">
+            <div>
+              <h3>ARTIGOS INFORMATIVOS</h3>
+              <p>Guias práticos para compreender exames, rótulos e sinais do intestino.</p>
+            </div>
+            <svg class="card-toggle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="card-content" id="content-artigos">
+            <div class="card-content-inner">
+              <h4>Artigos informativos</h4>
+              <ul style="padding-left: 20px; display: grid; gap: 12px;">
+                <li><a href="https://www.monashfodmap.com/blog/how-read-food-labels/" target="_blank"
+                    style="color: var(--teal); font-weight: 600;">Como interpretar rótulos alimentares quando se tem
+                    SII</a></li>
+                <li><a href="https://www.monashfodmap.com/blog/fibre-ibs/" target="_blank"
+                    style="color: var(--teal); font-weight: 600;">Fibras que ajudam e fibras que irritam o intestino</a>
+                </li>
+                <li><a href="https://my.clevelandclinic.org/health/diagnostics/22482-gut-microbiome-testing"
+                    target="_blank" style="color: var(--teal); font-weight: 600;">O que significa um exame à microbiota
+                    intestinal</a></li>
+                <li><a href="https://www.nhs.uk/conditions/lactose-intolerance/" target="_blank"
+                    style="color: var(--teal); font-weight: 600;">Intolerância à lactose versus má digestão
+                    ocasional</a></li>
+                <li><a href="https://www.monashfodmap.com/blog/ibs-stress-relationship/" target="_blank"
+                    style="color: var(--teal); font-weight: 600;">Como ajustar a alimentação em períodos de maior stress
+                    digestivo</a></li>
+                <li><a href="https://www.monashfodmap.com/blog/protein-and-ibs/" target="_blank"
+                    style="color: var(--teal); font-weight: 600;">Fontes de proteína mais seguras para o intestino
+                    sensível</a></li>
+                <li><a href="https://www.monashfodmap.com/blog/reintroduction-mistakes/" target="_blank"
+                    style="color: var(--teal); font-weight: 600;">Erros mais comuns na fase de reintrodução low
+                    FODMAP</a></li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3: Mitos e Verdades -->
+        <article class="expandable-card">
+          <div class="card-header" role="button" aria-expanded="false" aria-controls="content-mitos" tabindex="0">
+            <div>
+              <h3>MITOS E VERDADES</h3>
+              <p>Esclarecimento de ideias feitas sobre restrições, glúten, lactose e suplementação.</p>
+            </div>
+            <svg class="card-toggle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="card-content" id="content-mitos">
+            <div class="card-content-inner">
+              <h4>Mitos e verdades sobre saúde intestinal</h4>
+
+              <div class="article-block">
+                <span class="recipe-title">“O glúten é sempre o culpado pelos sintomas”</span>
+                <p><strong>Esclarecimento:</strong> muitas pessoas reagem aos FODMAPs do trigo e não ao glúten em si.
+                </p>
+              </div>
+
+              <div class="article-block">
+                <span class="recipe-title">“A lactose é um problema para toda a gente com SII”</span>
+                <p><strong>Esclarecimento:</strong> falso. A sensibilidade é variável e muitos toleram quantidades
+                  moderadas.</p>
+              </div>
+
+              <div class="article-block">
+                <span class="recipe-title">“Os probióticos resolvem o SII”</span>
+                <p><strong>Esclarecimento:</strong> não resolvem. Podem ajudar quando se escolhem estirpes adequadas ao
+                  tipo de sintomas.</p>
+              </div>
+
+              <div class="article-block">
+                <span class="recipe-title">“Eliminações prolongadas fazem sempre bem”</span>
+                <p><strong>Esclarecimento:</strong> falso. Restrições longas empobrecem a microbiota e podem piorar a
+                  tolerância.</p>
+              </div>
+
+              <div class="article-block">
+                <span class="recipe-title">“Se é saudável, nunca faz mal ao intestino”</span>
+                <p><strong>Esclarecimento:</strong> nem sempre. Alho, cebola ou leguminosas são saudáveis, mas muito
+                  ricos em FODMAPs para quem tem intestino sensível.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4: Psicobióticos -->
+        <article class="expandable-card">
+          <div class="card-header" role="button" aria-expanded="false" aria-controls="content-psicobioticos"
+            tabindex="0">
+            <div>
+              <h3>PSICOBIÓTICOS</h3>
+              <p>Ligação intestino cérebro e impacto de probióticos específicos no humor e no conforto digestivo.</p>
+            </div>
+            <svg class="card-toggle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="card-content" id="content-psicobioticos">
+            <div class="card-content-inner">
+              <h4>Psicobióticos e eixo intestino cérebro</h4>
+              <p style="margin-bottom: 16px;">A ciência atual mostra que o intestino e o cérebro comunicam de forma
+                contínua através do eixo intestino cérebro. Esta ligação envolve o sistema nervoso, o sistema imunitário
+                e a microbiota.</p>
+              <p style="margin-bottom: 16px;">Os psicobióticos são probióticos específicos com capacidade de influenciar
+                esta comunicação, atuando tanto no bem estar digestivo como na regulação emocional. Não “curam”
+                ansiedade ou depressão, mas podem modular neurotransmissores associados ao humor, como serotonina e
+                GABA, além de reduzir inflamação intestinal que muitas vezes se associa a alterações emocionais.</p>
+              <p style="margin-bottom: 16px;">As estirpes mais estudadas incluem espécies de Lactobacillus e
+                Bifidobacterium, em especial <em>Lactobacillus rhamnosus GG</em>, <em>Bifidobacterium longum 1714</em> e
+                <em>Lactobacillus helveticus R0052</em>.
+              </p>
+
+              <div style="background: var(--mint-soft); padding: 16px; border-radius: 12px; margin-top: 20px;">
+                <strong style="color: var(--teal); display: block; margin-bottom: 8px;">Como atuar na prática</strong>
+                <ul style="padding-left: 20px; margin: 0;">
+                  <li>Introduzir apenas uma estirpe de cada vez para avaliar tolerância.</li>
+                  <li>Acompanhar sintomas digestivos nas primeiras semanas.</li>
+                  <li>Ajustar a dose em fases de maior stress digestivo.</li>
+                  <li>Integrar sempre com hábitos que apoiem o eixo intestino cérebro: sono regular, refeições
+                    estruturadas e gestão do stress.</li>
+                </ul>
+              </div>
+
+              <p style="margin-top: 16px;"><strong>Resultado esperado:</strong> Melhoria gradual do conforto intestinal,
+                menor desconforto pós refeição e sensação de maior estabilidade emocional, principalmente quando os
+                psicobióticos são integrados num plano nutricional personalizado.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5: Guias Práticos -->
+        <article class="expandable-card">
+          <div class="card-header" role="button" aria-expanded="false" aria-controls="content-guias" tabindex="0">
+            <div>
+              <h3>GUIAS PRÁTICOS</h3>
+              <p>Ferramentas para aplicar o plano alimentar no dia a dia.</p>
+            </div>
+            <svg class="card-toggle-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="card-content" id="content-guias">
+            <div class="card-content-inner">
+              <h4>Guias práticos para o dia a dia</h4>
+              <ul style="padding-left: 20px; display: grid; gap: 10px;">
+                <li>Listas de compras organizadas por categorias seguras e a testar.</li>
+                <li>Estratégias para gerir refeições fora de casa sem agravar sintomas.</li>
+                <li>Sugestões de refeições base que podem ser adaptadas conforme a tolerância individual.</li>
+                <li>Modelos de reintrodução faseada para acompanhar o progresso e recuperar variedade alimentar.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
       </div>
     </section>
 
@@ -1264,6 +1536,38 @@
 
     acceptBtn?.addEventListener('click', () => applyConsent('accepted'));
     rejectBtn?.addEventListener('click', () => applyConsent('rejected'));
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.expandable-card');
+
+      cards.forEach(card => {
+        const header = card.querySelector('.card-header');
+        const content = card.querySelector('.card-content');
+
+        header.addEventListener('click', () => {
+          const isExpanded = card.classList.contains('expanded');
+
+          // Toggle current card
+          card.classList.toggle('expanded');
+          header.setAttribute('aria-expanded', !isExpanded);
+
+          if (!isExpanded) {
+            content.style.maxHeight = content.scrollHeight + "px";
+          } else {
+            content.style.maxHeight = null;
+          }
+        });
+
+        // Keyboard accessibility
+        header.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            header.click();
+          }
+        });
+      });
+    });
   </script>
 </body>
 
