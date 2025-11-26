@@ -565,6 +565,88 @@
       color: var(--muted);
     }
 
+    /* Timeline Styles */
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+      margin-top: 20px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--teal-primary), var(--mint));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 32px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      left: -32px;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 3px solid var(--teal-primary);
+      box-shadow: 0 0 0 4px var(--mint-bg);
+      z-index: 1;
+    }
+
+    .timeline-content {
+      background: var(--white);
+      padding: 16px 20px;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      border-left: 3px solid var(--mint);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .timeline-content:hover {
+      transform: translateX(4px);
+      box-shadow: var(--shadow);
+      border-left-color: var(--teal-primary);
+    }
+
+    .timeline-date {
+      color: var(--teal-primary);
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .timeline-title {
+      color: var(--deep);
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .timeline-company {
+      color: var(--teal);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .timeline-description {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     .cookie-banner {
       position: fixed;
       inset: auto 16px 16px 16px;
@@ -909,29 +991,43 @@
             </svg>
             Experiência Profissional
           </h3>
-          <div style="display: grid; gap: 20px;">
-            <div>
-              <strong style="display: block; color: var(--deep);">Nutricionista</strong>
-              <span style="color: var(--teal); font-size: 0.9rem; font-weight: 600;">SousiClinica · Freelance</span>
-              <div style="color: var(--muted); font-size: 0.9rem;">Mar 2021 - Presente</div>
-              <p style="font-size: 0.9rem; margin-top: 4px;">Consulta de Nutrição Clínica geral e especializada em
-                FODMAP.</p>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Mar 2021 - Presente</span>
+                <div class="timeline-title">Nutricionista</div>
+                <span class="timeline-company">SousiClinica · Freelance</span>
+                <p class="timeline-description">Consulta de Nutrição Clínica geral e especializada em FODMAP.</p>
+              </div>
             </div>
-            <div>
-              <strong style="display: block; color: var(--deep);">Nutricionista</strong>
-              <span style="color: var(--teal); font-size: 0.9rem; font-weight: 600;">Clínica do Tempo</span>
-              <div style="color: var(--muted); font-size: 0.9rem;">Ago 2012 - Nov 2013 • Set 2014 - Dez. 2025</div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Ago 2012 - Nov 2013 • Set 2014 - Dez. 2025</span>
+                <div class="timeline-title">Nutricionista</div>
+                <span class="timeline-company">Clínica do Tempo</span>
+              </div>
             </div>
-            <div>
-              <strong style="display: block; color: var(--deep);">Nutricionista</strong>
-              <span style="color: var(--teal); font-size: 0.9rem; font-weight: 600;">Colégio Verde Água</span>
-              <div style="color: var(--muted); font-size: 0.9rem;">Set 2017 - Presente</div>
-              <p style="font-size: 0.9rem; margin-top: 4px;">Realização de ementas e fichas técnicas.</p>
+
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Set 2017 - Presente</span>
+                <div class="timeline-title">Nutricionista</div>
+                <span class="timeline-company">Colégio Verde Água</span>
+                <p class="timeline-description">Realização de ementas e fichas técnicas.</p>
+              </div>
             </div>
-            <div>
-              <strong style="display: block; color: var(--deep);">Nutricionista</strong>
-              <span style="color: var(--teal); font-size: 0.9rem; font-weight: 600;">Vivafit</span>
-              <div style="color: var(--muted); font-size: 0.9rem;">Mar 2012 - Jul 2012</div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Mar 2012 - Jul 2012</span>
+                <div class="timeline-title">Nutricionista</div>
+                <span class="timeline-company">Vivafit</span>
+              </div>
             </div>
           </div>
         </div>
