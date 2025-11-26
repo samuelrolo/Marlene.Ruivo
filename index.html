@@ -13,16 +13,41 @@
   <style>
     :root {
       color-scheme: light;
+
+      /* Color System */
+      --teal-primary: #0f766e;
+      --teal-light: #14b8a6;
       --mint: #b8e0d8;
       --mint-soft: #d8efe9;
+      --mint-bg: #f0fdfa;
       --seafoam: #a1d0c1;
-      --teal: #0f766e;
       --deep: #0f172a;
       --text: #1f2937;
+      --text-secondary: #64748b;
       --muted: #4b5563;
       --cloud: #f4f7f6;
       --white: #ffffff;
+
+      /* Spacing Scale */
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 48px;
+      --space-xl: 80px;
+      --space-2xl: 120px;
+
+      /* Typography */
+      --text-base: 1.0625rem;
+      --text-sm: 0.9375rem;
+
+      /* Effects */
       --shadow: 0 20px 60px rgba(10, 54, 46, 0.08);
+      --shadow-sm: 0 4px 16px rgba(10, 54, 46, 0.06);
+      --shadow-lg: 0 30px 80px rgba(10, 54, 46, 0.12);
+      --radius: 16px;
+      --radius-sm: 12px;
+      --radius-lg: 24px;
+
       scroll-behavior: smooth;
     }
 
@@ -228,6 +253,63 @@
       z-index: 1;
     }
 
+    .badge-monash {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: var(--mint-bg);
+      color: var(--teal-primary);
+      border-radius: 24px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      border: 1px solid rgba(15, 118, 110, 0.15);
+    }
+
+    .badge-monash svg {
+      flex-shrink: 0;
+    }
+
+    .hero-subtitle {
+      font-size: 1.125rem !important;
+      line-height: 1.6 !important;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-top: 16px !important;
+    }
+
+    .benefit-list {
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .benefit-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.0625rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+
+    .benefit-list .check-icon {
+      flex-shrink: 0;
+      color: var(--teal-primary);
+      background: var(--mint-bg);
+      border-radius: 50%;
+      padding: 4px;
+    }
+
+    .btn-large {
+      padding: 16px 32px !important;
+      font-size: 1.0625rem;
+      min-height: 56px;
+    }
+
     .hero-text p {
       font-size: 1.05rem;
       margin-top: 16px;
@@ -237,7 +319,7 @@
     .hero-actions {
       display: flex;
       gap: 12px;
-      margin-top: 24px;
+      margin-top: 28px;
       flex-wrap: wrap;
     }
 
@@ -719,13 +801,44 @@
   <main id="inicio">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-text">
+        <div class="badge-monash">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span>Certificada Monash University</span>
+        </div>
         <span class="eyebrow">Saúde intestinal • Dieta FODMAP</span>
         <h1 id="hero-title">Nutrição especializada em saúde intestinal e dieta FODMAP</h1>
-        <p>Apoio clínico baseado em ciência para reduzir sintomas e recuperar o bem-estar digestivo. A Marlene
-          estreia-se como nutricionista freelance em dezembro de 2025, mantendo o acompanhamento próximo e humano que
-          marca a sua carreira.</p>
+        <p class="hero-subtitle">Apoio clínico baseado em ciência para reduzir sintomas e recuperar o bem-estar
+          digestivo.</p>
+
+        <ul class="benefit-list">
+          <li>
+            <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Redução da dor abdominal</span>
+          </li>
+          <li>
+            <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Diminuição do inchaço</span>
+          </li>
+          <li>
+            <svg class="check-icon" width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <span>Plano alinhado com gastroenterologia</span>
+          </li>
+        </ul>
+
         <div class="hero-actions">
-          <a class="btn" href="#contactos">Agendar consulta</a>
+          <a class="btn btn-large" href="#contactos">Agendar consulta</a>
           <a class="btn secondary" href="#sobre">Saber mais</a>
         </div>
       </div>
