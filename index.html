@@ -298,6 +298,18 @@
       gap: 18px;
     }
 
+    .grid-2-cols {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    @media (min-width: 640px) {
+      .grid-2-cols {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     .card {
       background: var(--white);
       padding: 18px 18px 20px;
@@ -718,7 +730,7 @@
         </div>
         <a class="btn secondary" href="#contactos">Marcar consulta</a>
       </div>
-      <div class="grid">
+      <div class="grid-2-cols">
         <div class="card">
           <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
             <div class="icon" style="width: 36px; height: 36px; margin: 0;">
@@ -950,7 +962,7 @@
         </div>
       </div>
       <div class="symptoms">
-        <div class="grid">
+        <div class="grid-2-cols">
           <div class="card">
             <div class="icon" aria-hidden="true">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
