@@ -1630,6 +1630,15 @@
         header.addEventListener('click', () => {
           const isExpanded = card.classList.contains('expanded');
 
+          // Close all other cards
+          cards.forEach(otherCard => {
+            if (otherCard !== card && otherCard.classList.contains('expanded')) {
+              otherCard.classList.remove('expanded');
+              otherCard.querySelector('.card-header').setAttribute('aria-expanded', 'false');
+              otherCard.querySelector('.card-content').style.maxHeight = null;
+            }
+          });
+
           // Toggle current card
           card.classList.toggle('expanded');
           header.setAttribute('aria-expanded', !isExpanded);
