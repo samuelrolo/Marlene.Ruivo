@@ -1067,33 +1067,20 @@
       </div>
     </div>
   </div>
+  document.documentElement.dataset.analytics = 'disabled';
+  }
+  };
 
-  <section id="politica-cookies" style="max-width: 1200px; margin: 0 auto 60px; padding: 0 clamp(18px, 5vw, 36px);">
-    <div class="card" style="box-shadow: 0 12px 30px rgba(14, 78, 68, 0.08);">
-      <h3>Política de Cookies</h3>
-      <p>Este website usa cookies estritamente necessários para navegação e segurança. Apenas ativamos cookies opcionais
-        de medição anónima após o seu consentimento, cumprindo o RGPD, a Lei 46/2012 e as orientações da CNPD. Pode
-        const applyConsent = (status) => {
-        localStorage.setItem(consentKey, status);
-        banner.style.display = 'none';
-        // Placeholder para cookies opcionais futuros (analytics, etc.)
-        if (status === 'accepted') {
-        document.documentElement.dataset.analytics = 'enabled';
-        } else {
-        document.documentElement.dataset.analytics = 'disabled';
-        }
-        };
+  const stored = localStorage.getItem(consentKey);
+  if (stored) {
+  applyConsent(stored);
+  } else {
+  banner.style.display = 'block';
+  }
 
-        const stored = localStorage.getItem(consentKey);
-        if (stored) {
-        applyConsent(stored);
-        } else {
-        banner.style.display = 'block';
-        }
-
-        acceptBtn?.addEventListener('click', () => applyConsent('accepted'));
-        rejectBtn?.addEventListener('click', () => applyConsent('rejected'));
-        </script>
+  acceptBtn?.addEventListener('click', () => applyConsent('accepted'));
+  rejectBtn?.addEventListener('click', () => applyConsent('rejected'));
+  </script>
 </body>
 
 </html>
