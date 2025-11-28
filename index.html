@@ -1729,7 +1729,6 @@
             </div>
           </div>
         </article>
-
       </div>
     </section>
 
@@ -1740,13 +1739,15 @@
           <h2 id="contactos-title">Comece a cuidar do seu intestino</h2>
           <p class="subtitle">Envie uma mensagem ou agende a primeira consulta. Respondemos com brevidade.</p>
         </div>
-        <p><strong>Instagram:</strong> <a href="https://www.instagram.com/nutri_fodmap_marleneruivo" target="_blank"
-            rel="noreferrer">@nutri_fodmap_marleneruivo</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/marlene-ruivo-b2a2104a/" target="_blank"
-            rel="noreferrer">marlene-ruivo-b2a2104a</a></p>
-        <p><strong>Consultas:</strong> Mafra · Lisboa · Sintra · Online</p>
+        <div style="display: grid; gap: 8px; font-size: 0.95rem; color: var(--deep);">
+          <p><strong>Instagram:</strong> <a href="https://www.instagram.com/nutri_fodmap_marleneruivo" target="_blank"
+              rel="noreferrer" style="color: var(--teal);">@nutri_fodmap_marleneruivo</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/marlene-ruivo-b2a2104a/" target="_blank"
+              rel="noreferrer" style="color: var(--teal);">marlene-ruivo-b2a2104a</a></p>
+          <p><strong>Consultas:</strong> Mafra · Lisboa · Sintra · Online</p>
+        </div>
         <div class="hero-card"
-          style="position: relative; inset: unset; box-shadow: none; background: var(--mint-soft);">
+          style="position: relative; inset: unset; box-shadow: none; background: var(--mint-soft); margin-top: 20px;">
           <div class="pill-icon" aria-hidden="true"
             style="background: var(--white); box-shadow: 0 8px 18px rgba(12, 78, 68, 0.12);">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1760,8 +1761,137 @@
           </div>
         </div>
       </div>
+
+      <!-- Booking Widget with Payment -->
+      <div style="text-align: center; padding: 60px 20px 20px;">
+        <div
+          style="width: 64px; height: 64px; background: var(--mint-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M8 2v3M16 2v3M3.5 9.09h17M21 8.5V17c0 3-1.5 5-5 5H8c-3.5 0-5-2-5-5V8.5c0-3 1.5-5 5-5h8c3.5 0 5 2 5 5Z"
+              stroke="#0f766e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <h3 style="margin-bottom: 10px;">Agende a sua consulta</h3>
+        <p style="color: var(--muted); margin-bottom: 32px;">Escolha o melhor horário diretamente na nossa agenda.</p>
+
+        <!-- Payment Info Block -->
+        <div
+          style="background: var(--mint-bg); padding: 24px; border-radius: 12px; margin-bottom: 32px; text-align: left; border: 1px solid rgba(15, 118, 110, 0.15); max-width: 600px; margin-left: auto; margin-right: auto;">
+          <h4
+            style="color: var(--teal); margin: 0 0 16px; display: flex; align-items: center; gap: 8px; font-size: 1.05rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"
+                fill="currentColor" />
+            </svg>
+            Pagamento via MB WAY
+          </h4>
+
+          <div id="mbway-form">
+            <p style="margin: 0 0 12px; font-size: 0.9rem; color: var(--muted);">Insira o seu número de telemóvel para
+              receber o pedido de pagamento na app MB WAY.</p>
+            <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+              <input type="tel" id="mbway-phone" placeholder="Nº Telemóvel"
+                style="flex: 1; padding: 10px 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;">
+              <button id="mbway-pay-btn" class="btn"
+                style="padding: 10px 20px; font-size: 0.9rem; white-space: nowrap;">Pagar 60€</button>
+            </div>
+            <div id="mbway-status" style="font-size: 0.85rem; min-height: 20px;"></div>
+          </div>
+
+          <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(15, 118, 110, 0.1);">
+            <p style="margin: 0 0 8px; font-size: 0.85rem; font-weight: 600; color: var(--deep);">Outros métodos
+              aceites:</p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; opacity: 0.8;">
+              <!-- Multibanco -->
+              <div
+                style="background: #fff; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(15, 118, 110, 0.1); display: flex; align-items: center; height: 32px;"
+                title="Multibanco">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Multibanco_logo_2014.svg/2560px-Multibanco_logo_2014.svg.png"
+                  alt="Multibanco" style="height: 18px; width: auto;">
+              </div>
+              <!-- Stripe -->
+              <div
+                style="background: #fff; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(15, 118, 110, 0.1); display: flex; align-items: center; height: 32px;"
+                title="Stripe">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/2560px-Stripe_Logo%2C_revised_2016.svg.png"
+                  alt="Stripe" style="height: 16px; width: auto;">
+              </div>
+              <!-- Visa/Mastercard -->
+              <div
+                style="background: #fff; padding: 6px 10px; border-radius: 6px; border: 1px solid rgba(15, 118, 110, 0.1); display: flex; align-items: center; gap: 6px; height: 32px;"
+                title="Cartão de Crédito">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
+                  alt="Visa" style="height: 10px; width: auto;">
+                <div style="width: 1px; height: 12px; background: #ddd;"></div>
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png"
+                  alt="Mastercard" style="height: 16px; width: auto;">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0d..."
+          style="border: 0; width: 100%; height: 600px; border-radius: 12px; background: #f9f9f9;" frameborder="0"
+          title="Agenda de Consultas">
+        </iframe>
+
+        <script>
+          // Update iframe src with the correct link provided by user
+          document.querySelector('iframe[title="Agenda de Consultas"]').src = "https://calendar.app.google/ssACiBuaoJ74o6cp8?gv=true";
+
+          // MB WAY Payment Logic
+          const payBtn = document.getElementById('mbway-pay-btn');
+          const phoneInput = document.getElementById('mbway-phone');
+          const statusDiv = document.getElementById('mbway-status');
+
+          if (payBtn) {
+            payBtn.addEventListener('click', async () => {
+              const phone = phoneInput.value.trim();
+              if (!phone || phone.length < 9) {
+                statusDiv.innerHTML = '<span style="color: #e11d48;">Por favor insira um número válido.</span>';
+                return;
+              }
+
+              payBtn.disabled = true;
+              payBtn.textContent = 'A processar...';
+              statusDiv.innerHTML = '<span style="color: var(--teal);">A comunicar com a Ifthenpay...</span>';
+
+              try {
+                const response = await fetch('/api/mbway', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({
+                    phoneNumber: phone,
+                    amount: '60.00', // Valor fixo da consulta
+                    email: 'cliente@exemplo.com'
+                  })
+                });
+
+                const data = await response.json();
+
+                if (data.Estado === '000') {
+                  statusDiv.innerHTML = '<span style="color: #059669; font-weight: 600;">Pedido enviado! Verifique a sua app MB WAY.</span>';
+                } else {
+                  statusDiv.innerHTML = '<span style="color: #e11d48;">Erro: ' + (data.MsgDescricao || 'Falha no pedido') + '</span>';
+                  payBtn.disabled = false;
+                  payBtn.textContent = 'Pagar 60€';
+                }
+              } catch (err) {
+                console.error(err);
+                statusDiv.innerHTML = '<span style="color: #e11d48;">Erro de comunicação. Tente novamente.</span>';
+                payBtn.disabled = false;
+                payBtn.textContent = 'Pagar 60€';
+              }
+            });
+          }
+        </script>
       </div>
-    </section>
     </section>
 
     <section id="manifesto" class="manifesto-section">
@@ -1786,7 +1916,8 @@
           alt="Logótipo Marlene Ruivo Gut Health Clinic com fundo transparente">
         <div>
           <p style="color: var(--deep); font-weight: 700;">Marlene Ruivo Gut Health Clinic</p>
-          <p class="subtitle" style="color: var(--muted);">Nutrição intestinal, dieta FODMAP e gestão de sintomas
+          <p class="subtitle" style="color: var(--muted);">Nutrição intestinal, dieta FODMAP e gestão de
+            sintomas
             gastrointestinais.</p>
         </div>
       </div>
@@ -1817,7 +1948,8 @@
           </svg>
         </a>
       </div>
-      <small style="color: var(--muted);">© 2025 Marlene Ruivo. Informação educacional, não substitui acompanhamento
+      <small style="color: var(--muted);">© 2025 Marlene Ruivo. Informação educacional, não substitui
+        acompanhamento
         médico individualizado. Política de privacidade e cookies em conformidade com RGPD e legislação
         portuguesa.</small>
     </div>
@@ -1825,9 +1957,11 @@
 
   <div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies">
     <div class="cookie-content">
-      <p><strong>Cookies essenciais e de medição.</strong> Usamos cookies necessários para o funcionamento do site e,
+      <p><strong>Cookies essenciais e de medição.</strong> Usamos cookies necessários para o funcionamento do
+        site e,
         apenas com o seu consentimento, cookies de medição anónima de audiência. Consulte a <a
-          href="#politica-cookies">Política de Cookies</a> e o <a href="#politica-cookies">RGPD/Lei 46/2012</a> antes de
+          href="#politica-cookies">Política de Cookies</a> e o <a href="#politica-cookies">RGPD/Lei 46/2012</a>
+        antes de
         decidir.</p>
       <div class="cookie-actions">
         <button class="btn secondary" id="rejectCookies">Recusar opcionais</button>
@@ -1839,8 +1973,10 @@
   <section id="politica-cookies" style="max-width: 1200px; margin: 0 auto 60px; padding: 0 clamp(18px, 5vw, 36px);">
     <div class="card" style="box-shadow: 0 12px 30px rgba(14, 78, 68, 0.08);">
       <h3>Política de Cookies</h3>
-      <p>Este website usa cookies estritamente necessários para navegação e segurança. Apenas ativamos cookies opcionais
-        de medição anónima após o seu consentimento, cumprindo o RGPD, a Lei 46/2012 e as orientações da CNPD. Pode
+      <p>Este website usa cookies estritamente necessários para navegação e segurança. Apenas ativamos cookies
+        opcionais
+        de medição anónima após o seu consentimento, cumprindo o RGPD, a Lei 46/2012 e as orientações da CNPD.
+        Pode
         consultar a nossa política completa para mais detalhes.</p>
     </div>
   </section>
