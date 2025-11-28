@@ -854,6 +854,31 @@
       transform: scale(1.02);
       border-color: rgba(255, 255, 255, 0.2);
     }
+
+    /* Specialization Cards Hover Effect */
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 50px rgba(15, 118, 110, 0.15);
+    }
+
+    /* Specialization Grid */
+    .specialization-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .specialization-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .specialization-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -994,43 +1019,6 @@
           <li class="chip">Consultas online</li>
         </ul>
 
-        <!-- Skills Section -->
-        <div
-          style="margin-top: 40px; padding: 32px; background: var(--white); border-radius: 16px; box-shadow: var(--shadow-sm);">
-          <h3 style="font-size: 1.125rem; margin-bottom: 20px; color: var(--deep);">Áreas de Especialização</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;">
-            <div
-              style="padding: 12px 16px; background: var(--mint-bg); border-radius: 10px; border-left: 3px solid var(--teal-primary);">
-              <div style="font-weight: 600; color: var(--deep); font-size: 0.9375rem;">Nutrição Clínica</div>
-              <div style="font-size: 0.8125rem; color: var(--muted); margin-top: 2px;">15 anos de experiência</div>
-            </div>
-            <div
-              style="padding: 12px 16px; background: var(--mint-bg); border-radius: 10px; border-left: 3px solid var(--teal-primary);">
-              <div style="font-weight: 600; color: var(--deep); font-size: 0.9375rem;">Dieta FODMAP</div>
-              <div style="font-size: 0.8125rem; color: var(--muted); margin-top: 2px;">Certificação Monash</div>
-            </div>
-            <div
-              style="padding: 12px 16px; background: var(--mint-bg); border-radius: 10px; border-left: 3px solid var(--teal-primary);">
-              <div style="font-weight: 600; color: var(--deep); font-size: 0.9375rem;">SII & SIBO</div>
-              <div style="font-size: 0.8125rem; color: var(--muted); margin-top: 2px;">Especialização avançada</div>
-            </div>
-            <div
-              style="padding: 12px 16px; background: var(--mint-bg); border-radius: 10px; border-left: 3px solid var(--teal-primary);">
-              <div style="font-weight: 600; color: var(--deep); font-size: 0.9375rem;">Gestão de Sintomas</div>
-              <div style="font-size: 0.8125rem; color: var(--muted); margin-top: 2px;">Abordagem personalizada</div>
-            </div>
-            <div
-              style="padding: 12px 16px; background: var(--mint-bg); border-radius: 10px; border-left: 3px solid var(--teal-primary);">
-              <div style="font-weight: 600; color: var(--deep); font-size: 0.9375rem;">Educação Alimentar</div>
-              <div style="font-size: 0.8125rem; color: var(--muted); margin-top: 2px;">Planos sustentáveis</div>
-            </div>
-            <div
-              style="padding: 12px 16px; background: var(--mint-bg); border-radius: 10px; border-left: 3px solid var(--teal-primary);">
-              <div style="font-weight: 600; color: var(--deep); font-size: 0.9375rem;">Saúde Intestinal</div>
-              <div style="font-size: 0.8125rem; color: var(--muted); margin-top: 2px;">Foco principal</div>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- Experience & Education Section -->
@@ -1133,6 +1121,104 @@
           </div>
         </div>
 
+      </div>
+
+      <!-- Áreas de Especialização Section -->
+      <div style="margin-top: 60px;">
+        <h3 style="font-size: 1.125rem; margin-bottom: 20px; color: var(--deep);">Áreas de Especialização</h3>
+        <div class="specialization-grid">
+
+          <!-- Nutrição Clínica -->
+          <div class="card"
+            style="padding: 20px; transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: default;">
+            <div class="icon" style="width: 48px; height: 48px; margin-bottom: 12px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
+                  stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div style="font-weight: 700; color: var(--deep); font-size: 0.9375rem; margin-bottom: 4px;">Nutrição
+              Clínica</div>
+            <div style="font-size: 0.8125rem; color: var(--muted);">15 anos de experiência</div>
+          </div>
+
+          <!-- Dieta FODMAP -->
+          <div class="card"
+            style="padding: 20px; transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: default;">
+            <div class="icon" style="width: 48px; height: 48px; margin-bottom: 12px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 8c0-1.657 1.343-3 3-3h1c1.657 0 3 1.343 3 3v8a2 2 0 1 1-4 0v-7" stroke="#0f766e"
+                  stroke-width="1.6" stroke-linecap="round" />
+                <path d="M12 7h1a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-1" stroke="#0f766e" stroke-width="1.6"
+                  stroke-linecap="round" />
+              </svg>
+            </div>
+            <div style="font-weight: 700; color: var(--deep); font-size: 0.9375rem; margin-bottom: 4px;">Dieta FODMAP
+            </div>
+            <div style="font-size: 0.8125rem; color: var(--muted);">Certificação Monash</div>
+          </div>
+
+          <!-- SII & SIBO -->
+          <div class="card"
+            style="padding: 20px; transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: default;">
+            <div class="icon" style="width: 48px; height: 48px; margin-bottom: 12px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="#0f766e"
+                  stroke-width="1.6" stroke-linecap="round" />
+                <circle cx="8" cy="10" r="1.5" fill="#0f766e" fill-opacity="0.3" />
+                <circle cx="15" cy="14" r="2" fill="#0f766e" fill-opacity="0.3" />
+                <circle cx="16" cy="8" r="1" fill="#0f766e" fill-opacity="0.3" />
+              </svg>
+            </div>
+            <div style="font-weight: 700; color: var(--deep); font-size: 0.9375rem; margin-bottom: 4px;">SII & SIBO
+            </div>
+            <div style="font-size: 0.8125rem; color: var(--muted);">Especialização avançada</div>
+          </div>
+
+          <!-- Gestão de Sintomas -->
+          <div class="card"
+            style="padding: 20px; transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: default;">
+            <div class="icon" style="width: 48px; height: 48px; margin-bottom: 12px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h1m-1 4h1m4-4h1m-1 4h1"
+                  stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <div style="font-weight: 700; color: var(--deep); font-size: 0.9375rem; margin-bottom: 4px;">Gestão de
+              Sintomas</div>
+            <div style="font-size: 0.8125rem; color: var(--muted);">Abordagem personalizada</div>
+          </div>
+
+          <!-- Educação Alimentar -->
+          <div class="card"
+            style="padding: 20px; transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: default;">
+            <div class="icon" style="width: 48px; height: 48px; margin-bottom: 12px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" fill="#0f766e" />
+              </svg>
+            </div>
+            <div style="font-weight: 700; color: var(--deep); font-size: 0.9375rem; margin-bottom: 4px;">Educação
+              Alimentar</div>
+            <div style="font-size: 0.8125rem; color: var(--muted);">Planos sustentáveis</div>
+          </div>
+
+          <!-- Saúde Intestinal -->
+          <div class="card"
+            style="padding: 20px; transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: default;">
+            <div class="icon" style="width: 48px; height: 48px; margin-bottom: 12px;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 9c0 5 3 9 8 9s8-4 8-9" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" />
+                <path d="M4 9c2-2 4 0 6-2s4 0 6-2 4 0 6-2" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div style="font-weight: 700; color: var(--deep); font-size: 0.9375rem; margin-bottom: 4px;">Saúde
+              Intestinal</div>
+            <div style="font-size: 0.8125rem; color: var(--muted);">Foco principal</div>
+          </div>
+
+        </div>
       </div>
     </section>
 
@@ -1273,7 +1359,7 @@
             <div class="muted-label" style="color: var(--teal);">Terça-feira</div>
             <strong>Instituto Bettencourt – Saúde Integrativa · Lisboa</strong>
             <p>9:00 - 16:00</p>
-            <p>1ª consulta: 60€ · Acompanhamento: 50€</p>
+            <p>1ª consulta: 60€ · Acompanhamento: 60€</p>
           </div>
           <div class="card" style="box-shadow: none; background: var(--white);">
             <div class="muted-label" style="color: var(--teal);">Quarta-feira</div>
@@ -1765,7 +1851,7 @@
         </div>
         <div class="card" style="gap: 12px;">
           <div class="muted-label">Contactos diretos</div>
-          <p><strong>Email:</strong> <a href="mailto:marleneruivonuticao@gmail.com">marleneruivonuticao@gmail.com</a>
+          <p><strong>Email:</strong> <a href="mailto:marleneruivonutricao@gmail.com">marleneruivonutricao@gmail.com</a>
           </p>
           <p><strong>Instagram:</strong> <a href="https://www.instagram.com/nutri_fodmap_marleneruivo" target="_blank"
               rel="noreferrer">@nutri_fodmap_marleneruivo</a></p>
@@ -1837,7 +1923,7 @@
               stroke-linecap="round" />
           </svg>
         </a>
-        <a href="mailto:marleneruivonuticao@gmail.com" aria-label="Email">
+        <a href="mailto:marleneruivonutricao@gmail.com" aria-label="Email">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M4.5 6.5h15v11h-15v-11Z" stroke="var(--teal)" stroke-width="1.6" />
             <path d="M4.5 8 12 12.5 19.5 8" stroke="var(--teal)" stroke-width="1.6" stroke-linecap="round" />
