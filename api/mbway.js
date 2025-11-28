@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
     params.append('canal', '03');
     params.append('referencia', orderId);
     params.append('valor', amount);
-    params.append('nrtlem', phoneNumber);
+    params.append('nrtlm', phoneNumber);
     params.append('email', email || '');
     params.append('descricao', 'Consulta Nutricao');
 
