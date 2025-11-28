@@ -1504,7 +1504,9 @@
                                 if (data.Estado === '000') {
                                     statusDiv.innerHTML = '<span style="color: #059669; font-weight: 600;">Pedido enviado! Verifique a sua app MB WAY.</span>';
                                 } else {
-                                    statusDiv.innerHTML = '<span style="color: #e11d48;">Erro: ' + (data.MsgDescricao || 'Falha no pedido') + '</span>';
+                                    // Show specific error from backend if available
+                                    const errorMsg = data.MsgDescricao || data.error || (data.details ? data.details : 'Falha no pedido');
+                                    statusDiv.innerHTML = '<span style="color: #e11d48;">Erro: ' + errorMsg + '</span>';
                                     payBtn.disabled = false;
                                     payBtn.textContent = 'Pagar';
                                 }
