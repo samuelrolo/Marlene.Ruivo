@@ -762,6 +762,28 @@
       transform: translateY(0);
     }
 
+    /* Floating Animation */
+    @keyframes floatGentle {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .hero-float {
+      animation: floatGentle 4s ease-in-out infinite;
+    }
+
+    /* Section Spacing */
+    section {
+      margin-bottom: clamp(60px, 10vw, 100px);
+    }
+
     .card.fade-in {
       opacity: 0;
       transform: translateY(20px);
@@ -1111,31 +1133,28 @@
       <div <div
         style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: clamp(30px, 5vw, 60px); align-items: start;">
 
-        <!-- Left: Premium White Background Photo -->
-        <div
-          style="position: relative; background: linear-gradient(135deg, #ffffff 0%, #f8fffe 100%); padding: 40px; border-radius: 28px; box-shadow: 0 20px 60px rgba(15, 118, 110, 0.08);">
-          <img src="Assets/marlene-cup.jpg" alt="Marlene Ruivo - Nutricionista"
-            style="width: 100%; border-radius: 20px; object-fit: cover; aspect-ratio: 3/4;">
+        <!-- Left: Clean Photo (no borders, blends naturally) -->
+        <div style="position: relative;">
+          <img src="Assets/marlene-cup.jpg" alt="Marlene Ruivo - Nutricionista" class="hero-float"
+            style="width: 100%; object-fit: cover; aspect-ratio: 3/4;">
 
-          <div
-            style="background: var(--white); padding: 20px; border-radius: 16px; margin-top: -30px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid rgba(15, 118, 110, 0.08);">
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-              <div
-                style="width: 48px; height: 48px; background: var(--mint-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              </div>
-              <div>
-                <div style="color: var(--teal); font-weight: 800; font-size: 1.5rem; line-height: 1;">15+</div>
-                <div style="font-size: 0.85rem; font-weight: 600; color: var(--muted); line-height: 1.2;">Anos</div>
-              </div>
-            </div>
-            <div style="font-size: 0.9rem; color: var(--deep); font-weight: 600;">Experiência clínica em nutrição</div>
+          <div style="display: flex; align-items: center; gap: 12px; margin-top: 20px;">
             <div
-              style="display: inline-block; background: var(--mint-soft); padding: 4px 12px; border-radius: 8px; margin-top: 8px; font-size: 0.8rem; font-weight: 700; color: var(--teal);">
-              Monash Certified</div>
+              style="width: 48px; height: 48px; background: var(--mint-soft); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0f766e" stroke-width="2">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            </div>
+            <div>
+              <div style="color: var(--teal); font-weight: 800; font-size: 1.5rem; line-height: 1;">15+</div>
+              <div style="font-size: 0.85rem; font-weight: 600; color: var(--muted); line-height: 1.2;">Anos de
+                experiência clínica</div>
+            </div>
+          </div>
+          <div
+            style="display: inline-block; background: var(--mint-soft); padding: 6px 14px; border-radius: 8px; margin-top: 12px; font-size: 0.85rem; font-weight: 700; color: var(--teal);">
+            Monash Certified
           </div>
         </div>
 
@@ -1250,31 +1269,64 @@
               <path d="M7 8.5V6a2 2 0 0 1 2-2h3" stroke="#0f766e" stroke-width="1.6" stroke-linecap="round" />
             </svg>
           </div>
-          <h3>Experiência clínica consolidada</h3>
-          <p>Atuação contínua em SousaClínica (desde 2021) e Clínica do Tempo (desde 2014), agora aplicada numa prática
-            autónoma focada em saúde intestinal.</p>
-          <div class="muted-label" style="color: var(--teal);">Segunda-feira</div>
-          <strong>Clínica Hygeia · Mafra</strong>
-          <p>9:00 - 13:00</p>
-          <p>1ª consulta: 60€ · Acompanhamento: 50€</p>
+          <h3>Experiência clínica</h3>
+          <p>15+ anos em nutrição clínica, agora focada em saúde intestinal.</p>
         </div>
-        <div class="card" style="box-shadow: none; background: var(--white);">
+        <!-- Location Card: Terça-feira Lisboa -->
+        <div class="card" style="box-shadow: none; border: none; background: var(--white); padding: 24px;">
           <div class="muted-label" style="color: var(--teal);">Terça-feira</div>
           <strong>Instituto Bettencourt – Saúde Integrativa · Lisboa</strong>
           <p>9:00 - 16:00</p>
           <p>1ª consulta: 60€ · Acompanhamento: 50€</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
+            <a href="https://www.waze.com/ul?q=Instituto%20Bettencourt%20Lisboa" target="_blank"
+              style="display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; background: #33ccff; color: white; border-radius: 20px; font-size: 0.8rem; text-decoration: none;">🚗
+              Waze</a>
+            <a href="https://maps.google.com/?q=Instituto+Bettencourt+Lisboa" target="_blank"
+              style="display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; background: #4285f4; color: white; border-radius: 20px; font-size: 0.8rem; text-decoration: none;">📍
+              Google</a>
+            <a href="https://maps.apple.com/?q=Instituto+Bettencourt+Lisboa" target="_blank"
+              style="display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; background: #333; color: white; border-radius: 20px; font-size: 0.8rem; text-decoration: none;">🍎
+              Apple</a>
+            <a href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=Instituto%20Bettencourt%20Lisboa"
+              target="_blank"
+              style="display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; background: #000; color: white; border-radius: 20px; font-size: 0.8rem; text-decoration: none;">🚕
+              Uber</a>
+          </div>
         </div>
-        <div class="card" style="box-shadow: none; background: var(--white);">
+        <!-- Location Card: Quarta-feira Sintra -->
+        <div class="card" style="box-shadow: none; border: none; background: var(--white); padding: 24px;">
           <div class="muted-label" style="color: var(--teal);">Quarta-feira</div>
           <strong>Clínica Sousi · Sintra</strong>
           <p>9:00 - 17:00</p>
           <p>1ª consulta: 60€ · Acompanhamento: 50€</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
+            <a href="https://www.waze.com/ul?q=Clinica%20Sousi%20Sintra" target="_blank"
+              style="display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; background: #33ccff; color: white; border-radius: 20px; font-size: 0.8rem; text-decoration: none;">🚗
+              Waze</a>
+            <a href="https://maps.google.com/?q=Clinica+Sousi+Sintra" target="_blank"
+              style="display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; background: #4285f4; color: white; border-radius: 20px; font-size: 0.8rem; text-decoration: none;">📍
+              Google</a>
+            <a href="https://maps.apple.com/?q=Clinica+Sousi+Sintra" target="_blank"
+              style="display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; background: #333; color: white; border-radius: 20px; font-size: 0.8rem; text-decoration: none;">🍎
+              Apple</a>
+            <a href="https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=Clinica%20Sousi%20Sintra"
+              target="_blank"
+              style="display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px; background: #000; color: white; border-radius: 20px; font-size: 0.8rem; text-decoration: none;">🚕
+              Uber</a>
+          </div>
         </div>
-        <div class="card" style="box-shadow: none; background: var(--mint-soft);">
+        <!-- Online Card -->
+        <div class="card" style="box-shadow: none; border: none; background: var(--mint-soft); padding: 24px;">
           <div class="muted-label" style="color: var(--teal);">Online</div>
           <strong>Horário flexível (agenda partilhada)</strong>
           <p>Disponibilidade por marcação</p>
           <p>1ª consulta: 60€ · Acompanhamento: 50€</p>
+          <div style="margin-top: 12px;">
+            <a href="#contactos"
+              style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; background: var(--teal); color: white; border-radius: 20px; font-size: 0.85rem; text-decoration: none;">📅
+              Agendar Videochamada</a>
+          </div>
         </div>
       </div>
       <p style="margin-top: 14px; color: var(--muted);">Se não tiver agenda conciliável, é possível agendar
