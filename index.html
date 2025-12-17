@@ -789,6 +789,16 @@
     .testimonial {
       min-width: calc(100% - 100px);
       flex-shrink: 0;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: normal;
+    }
+
+    .testimonial p {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      white-space: normal;
+      hyphens: auto;
     }
 
     @media (min-width: 768px) {
