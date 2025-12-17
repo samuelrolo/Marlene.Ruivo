@@ -1495,7 +1495,67 @@
       </div>
     </section>
 
-    <!-- Locais de Consulta -->
+    </div>
+    </section>
+
+    <!-- Metodologia / Valores -->
+    <section class="fade-in-section" style="margin-bottom: 40px;">
+      <div
+        style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+
+        <!-- Card 1 -->
+        <div class="widget-card" style="justify-content: flex-start;">
+          <div class="widget-icon" style="background: rgba(15, 118, 110, 0.1); color: var(--teal);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <h3 style="font-size: 1.1rem; margin-top: 8px;">Atenção centrada na pessoa</h3>
+          <p style="font-size: 0.95rem; line-height: 1.6; color: var(--muted);">Plano que respeita sintomas, rotinas e
+            preferências alimentares para avanços sustentáveis.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="widget-card" style="justify-content: flex-start;">
+          <div class="widget-icon" style="background: rgba(15, 118, 110, 0.1); color: var(--teal);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 20h9" />
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+            </svg>
+          </div>
+          <h3 style="font-size: 1.1rem; margin-top: 8px;">Acompanhamento próximo</h3>
+          <p style="font-size: 0.95rem; line-height: 1.6; color: var(--muted);">Consultas regulares, monitorização de
+            sintomas e ajustes ágeis para manter o conforto digestivo.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="widget-card" style="justify-content: flex-start;">
+          <div class="widget-icon" style="background: rgba(15, 118, 110, 0.1); color: var(--teal);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
+          </div>
+          <h3 style="font-size: 1.1rem; margin-top: 8px;">Educação alimentar</h3>
+          <p style="font-size: 0.95rem; line-height: 1.6; color: var(--muted);">Ferramentas práticas para reconhecer
+            gatilhos, gerir recaídas e manter equilíbrio a longo prazo.</p>
+        </div>
+
+        <!-- Card 4 (Experience) -->
+        <div class="widget-card" style="justify-content: flex-start;">
+          <div class="widget-icon" style="background: rgba(15, 118, 110, 0.1); color: var(--teal);">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+          </div>
+          <h3 style="font-size: 1.1rem; margin-top: 8px;">Experiência clínica consolidada</h3>
+          <p style="font-size: 0.95rem; line-height: 1.6; color: var(--muted);">Atuação contínua em SousaClínica (desde
+            2021) e Clínica do Tempo (desde 2014), agora aplicada numa prática autónoma.</p>
+        </div>
+
+      </div>
+    </section>
     <section id="locais" class="fade-in-section">
       <div class="section-head">
         <span class="eyebrow">Onde Atendo</span>
@@ -2162,22 +2222,69 @@
     fadeInSections.forEach(section => fadeInObserver.observe(section));
     fadeInCards.forEach(card => fadeInObserver.observe(card));
 
-    // GeniNutri AI Logic
-    const geninutriKnowledge = {
-      'fodmap': 'FODMAP são hidratos de carbono de cadeia curta que fermentam no intestino. A dieta Low FODMAP, desenvolvida pela Monash University, ajuda a identificar alimentos que causam sintomas em pessoas com SII.',
-      'sintomas': 'Sintomas comuns de sensibilidade a FODMAPs incluem: inchaço, dores abdominais, gases, diarreia ou obstipação. Se tem estes sintomas frequentemente, a Dra. Marlene pode ajudar com um plano personalizado.',
-      'alimentos': 'Exemplos de alimentos High FODMAP: alho, cebola, trigo, leite, maçã. Alimentos Low FODMAP: arroz, banana, cenoura, frango, ovos. A dieta tem 3 fases: Eliminação, Reintrodução e Personalização.',
-      'consulta': 'A Dra. Marlene Ruivo atende em Mafra (segunda), Lisboa (terça), Sintra (quarta) e Online. Consulta inicial: 60€. Quer que eu abra a agenda de marcação?'
+    // GeniNutri Advanced AI Logic with Memory & Context
+    const SESSION_KEY = 'geninutri_session';
+
+    // Session State Management
+    let userSession = {
+      sintomaPrincipal: null,
+      gatilhosIdentificados: [],
+      faseAtual: 'exploração',
+      localidadePreferencia: null,
+      historico: [],
+      ultimaPergunta: null
+    };
+
+    // Load previous session on init
+    function initGeniNutri() {
+      const saved = localStorage.getItem(SESSION_KEY);
+      if (saved) {
+        userSession = JSON.parse(saved);
+        if (userSession.historico.length > 0) {
+          addMessage('Olá! Ficámos a meio da nossa conversa. Queres continuar?', 'bot');
+          setTimeout(() => showRecoveryButtons(), 500);
+        }
+      }
+    }
+
+    function saveSession() {
+      localStorage.setItem(SESSION_KEY, JSON.stringify(userSession));
+    }
+
+    // Knowledge Base with Context
+    const fodmapDatabase = {
+      high: {
+        'maçã': 'High FODMAP (frutose)',
+        'alho': 'High FODMAP (fructans)',
+        'cebola': 'High FODMAP (fructans)',
+        'leite': 'High FODMAP (lactose)',
+        'trigo': 'High FODMAP (fructans)',
+        'banana madura': 'High FODMAP'
+      },
+      low: {
+        'banana verde': 'Low FODMAP',
+        'arroz': 'Low FODMAP',
+        'cenoura': 'Low FODMAP',
+        'frango': 'Low FODMAP',
+        'ovo': 'Low FODMAP'
+      }
     };
 
     function toggleGeniNutri() {
       const chat = document.getElementById('geninutriChat');
+      const isOpening = !chat.classList.contains('open');
       chat.classList.toggle('open');
+
+      if (isOpening) {
+        initGeniNutri();
+      }
     }
 
     function askGeniNutri(question) {
       addMessage(question, 'user');
-      setTimeout(() => respondGeniNutri(question), 800);
+      userSession.historico.push({ tipo: 'user', texto: question, timestamp: Date.now() });
+      saveSession();
+      setTimeout(() => respondGeniNutriAdvanced(question), 800);
     }
 
     function sendGeniNutri() {
@@ -2186,8 +2293,10 @@
       if (!message) return;
 
       addMessage(message, 'user');
+      userSession.historico.push({ tipo: 'user', texto: message, timestamp: Date.now() });
       input.value = '';
-      setTimeout(() => respondGeniNutri(message), 800);
+      saveSession();
+      setTimeout(() => respondGeniNutriAdvanced(message), 800);
     }
 
     function addMessage(text, type) {
@@ -2199,34 +2308,143 @@
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
 
-    function respondGeniNutri(userMessage) {
+    function respondGeniNutriAdvanced(userMessage) {
       const msg = userMessage.toLowerCase();
       let response = '';
+      let followUp = null;
 
-      // FODMAP Detection
+      // FOOD TRIGGER DETECTION with context
+      for (const [food, info] of Object.entries({ ...fodmapDatabase.high, ...fodmapDatabase.low })) {
+        if (msg.includes(food)) {
+          response = `${food}: ${info}. `;
+          if (info.includes('High')) {
+            userSession.gatilhosIdentificados.push(food);
+            response += `Tens notado desconforto após comer ${food}?`;
+            userSession.ultimaPergunta = 'sintoma_pos_alimento';
+          } else if (food === 'banana verde') {
+            response += 'Mas atenção: a banana madura já é High FODMAP. Costumas comer muita fruta durante o dia?';
+            userSession.ultimaPergunta = 'volume_frutose';
+          }
+          saveSession();
+          addMessage(response, 'bot');
+          return;
+        }
+      }
+
+      // CRISIS MODE Detection
+      if (msg.includes('dor') && (msg.includes('muita') || msg.includes('agora') || msg.includes('crise'))) {
+        userSession.sintomaPrincipal = 'dor_aguda';
+        userSession.faseAtual = 'crise';
+        response = 'Lamento que estejas a passar por isso. Além da dor, sentes o abdómen inchado?';
+        userSession.ultimaPergunta = 'sintoma_secundario';
+        addMessage(response, 'bot');
+        saveSession();
+        return;
+      }
+
+      // CONTEXTUAL FOLLOW-UP based on last question
+      if (userSession.ultimaPergunta === 'sintoma_secundario') {
+        if (msg.includes('sim') || msg.includes('inchaço')) {
+          response = 'Entendo. Nestas fases de crise, a Dra. Marlene foca na Fase de Eliminação. Preferes consulta em Mafra, Lisboa, Sintra ou Online?';
+          userSession.ultimaPergunta = 'escolha_local';
+        } else {
+          response = 'Dor sem inchaço pode ter outras causas. É importante uma avaliação presencial. Posso mostrar-te os locais disponíveis?';
+        }
+        addMessage(response, 'bot');
+        saveSession();
+        return;
+      }
+
+      // LOCATION PREFERENCE
+      if (userSession.ultimaPergunta === 'escolha_local') {
+        if (msg.includes('mafra')) userSession.localidadePreferencia = 'mafra';
+        else if (msg.includes('lisboa')) userSession.localidadePreferencia = 'lisboa';
+        else if (msg.includes('sintra')) userSession.localidadePreferencia = 'sintra';
+        else if (msg.includes('online')) userSession.localidadePreferencia = 'online';
+
+        saveSession();
+        showLocationButtons(userSession.localidadePreferencia);
+        return;
+      }
+
+      // SYMPTOM Detection with Memory
+      if (msg.includes('inchaço') || msg.includes('gases') || msg.includes('dor abdominal')) {
+        const sintoma = msg.includes('inchaço') ? 'inchaço' : msg.includes('gases') ? 'gases' : 'dor';
+        userSession.sintomaPrincipal = sintoma;
+        response = `Sintomas de ${sintoma} são comuns em sensibilidade a FODMAPs. Estes sinais são comuns em casos de SII, mas apenas a Dra. Marlene pode confirmar num plano personalizado. `;
+
+        if (userSession.gatilhosIdentificados.length > 0) {
+          response += `Vejo que já identificaste: ${userSession.gatilhosIdentificados.join(', ')}. `;
+        }
+
+        response += 'Gostarias de marcar uma consulta de avaliação?';
+        userSession.faseAtual = 'conversao';
+
+        addMessage(response, 'bot');
+        setTimeout(() => showBookingButtons(), 1000);
+        saveSession();
+        return;
+      }
+
+      // FODMAP Info
       if (msg.includes('fodmap') || msg.includes('o que é')) {
-        response = geninutriKnowledge.fodmap;
+        response = 'FODMAP são hidratos de carbono de cadeia curta que fermentam no intestino. A dieta Low FODMAP, desenvolvida pela Monash University, tem 3 fases: Eliminação, Reintrodução e Personalização.';
+        addMessage(response, 'bot');
+        return;
       }
-      // Symptom Detection
-      else if (msg.includes('inchaço') || msg.includes('dor') || msg.includes('sintomas') || msg.includes('gases')) {
-        response = geninutriKnowledge.sintomas + ' \\n\\nIsto parece algo que a Dra. Marlene deve analisar contigo pessoalmente. Gostarias de marcar consulta?';
-        setTimeout(() => showBookingButtons(), 1000);
-      }
-      // Food Questions
-      else if (msg.includes('comer') || msg.includes('alimento') || msg.includes('posso')) {
-        response = geninutriKnowledge.alimentos;
-      }
-      // Booking Intent
-      else if (msg.includes('marcar') || msg.includes('agendar') || msg.includes('consulta')) {
-        response = geninutriKnowledge.consulta;
-        setTimeout(() => showBookingButtons(), 1000);
-      }
-      // Default
-      else {
-        response = 'Posso ajudar com informações sobre FODMAP, sintomas intestinais ou marcar consulta. O que te interessa mais?';
+
+      // Default with context awareness
+      if (userSession.historico.length > 2) {
+        response = 'Posso ajudar com mais alguma dúvida sobre alimentos, sintomas ou marcar consulta?';
+      } else {
+        response = 'Posso ajudar com informações sobre FODMAP, identificar alimentos gatilho ou marcar consulta. O que te interessa?';
       }
 
       addMessage(response, 'bot');
+    }
+
+    function showRecoveryButtons() {
+      const messagesDiv = document.getElementById('geninutriMessages');
+      const buttonsDiv = document.createElement('div');
+      buttonsDiv.className = 'geninutri-quick-buttons';
+      buttonsDiv.innerHTML = `
+        <button class="quick-btn" onclick="continueSession()">✅ Continuar</button>
+        <button class="quick-btn" onclick="resetSession()">🔄 Recomeçar</button>
+      `;
+      messagesDiv.appendChild(buttonsDiv);
+    }
+
+    function continueSession() {
+      addMessage('Óptimo! Onde ficámos?', 'bot');
+    }
+
+    function resetSession() {
+      localStorage.removeItem(SESSION_KEY);
+      userSession = { sintomaPrincipal: null, gatilhosIdentificados: [], faseAtual: 'exploração', localidadePreferencia: null, historico: [], ultimaPergunta: null };
+      addMessage('Conversa reiniciada. Como posso ajudar?', 'bot');
+    }
+
+    function showLocationButtons(location) {
+      const messagesDiv = document.getElementById('geninutriMessages');
+      const buttonsDiv = document.createElement('div');
+      buttonsDiv.className = 'geninutri-quick-buttons';
+
+      if (location === 'mafra') {
+        addMessage('Clínica Hygeia (Mafra) - Segundas 9h-13h. Consulta: 60€', 'bot');
+      } else if (location === 'lisboa') {
+        addMessage('Instituto Bettencourt (Lisboa) - Terças 9h-16h. Consulta: 60€', 'bot');
+      } else if (location === 'sintra') {
+        addMessage('Clínica Sousi (Sintra) - Quartas 9h-17h. Consulta: 60€', 'bot');
+      } else {
+        addMessage('Consulta Online - Horário flexível. Consulta: 60€', 'bot');
+      }
+
+      buttonsDiv.innerHTML = `
+        <button class="quick-btn" onclick="openBookingModal()">📅 Marcar Consulta</button>
+        <button class="quick-btn" onclick="window.open('https://wa.me/351915089258', '_blank')">💬 WhatsApp</button>
+      `;
+      messagesDiv.appendChild(buttonsDiv);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
 
     function showBookingButtons() {
