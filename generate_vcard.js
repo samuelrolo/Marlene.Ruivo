@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const outputDir = 'c:/Users/samue/OneDrive/Ambiente de Trabalho/Marlene Ruivo Nutrição/MarleneRuivo/Assets';
+const outputDir = path.join(__dirname, 'Assets');
 const photoPath = path.join(outputDir, 'Foto Marlene 1.png');
 const vcardPath = path.join(outputDir, 'marlene-ruivo.vcf');
 
@@ -26,7 +26,7 @@ N:Ruivo;Marlene;;Drª;
 FN:Drª Marlene Ruivo
 ORG:Marlene Ruivo Nutrição
 TITLE:Nutricionista
-TEL;TYPE=CELL,VOICE:915089256
+TEL;TYPE=CELL,VOICE:915089258
 EMAIL;TYPE=WORK,INTERNET:marleneruivonutricao@gmail.com
 URL:https://www.marleneruivo.pt
 X-SOCIALPROFILE;type=instagram:https://www.instagram.com/nutri_fodmap_marleneruivo/
