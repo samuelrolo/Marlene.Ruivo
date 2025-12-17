@@ -9,7 +9,9 @@
     content="Nutricionista Marlene Ruivo, especialista em saúde intestinal, síndrome do intestino irritável e dieta FODMAP. Consultas online e presenciais. Freelance a partir de dezembro de 2025." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -74,13 +76,16 @@
       --mint: #b8e0d8;
       --mint-soft: #d8efe9;
       --seafoam: #a1d0c1;
-      --teal: #0f766e;
+      --teal: #4A5D4E;
+      /* Verde Assinatura Marlene Ruivo */
       --deep: #0f172a;
-      --text: #1f2937;
+      --text: #333333;
       --muted: #4b5563;
-      --cloud: #f4f7f6;
+      --cloud: #FDFCF9;
+      /* Fundo bege osso */
       --white: #ffffff;
-      --shadow: 0 20px 60px rgba(10, 54, 46, 0.08);
+      --shadow: none;
+      /* Sem sombras pesadas */
       scroll-behavior: smooth;
     }
 
@@ -90,11 +95,19 @@
 
     body {
       margin: 0;
-      font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
       color: var(--text);
       background: var(--cloud);
-      line-height: 1.7;
+      line-height: 1.8;
       min-height: 100vh;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Lora', Georgia, serif;
+      color: var(--teal);
     }
 
     img {
@@ -108,12 +121,16 @@
     }
 
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 10;
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(12, 88, 79, 0.08);
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(74, 93, 78, 0.1);
+      transition: all 0.3s ease;
     }
 
     .nav-bar {
@@ -265,7 +282,7 @@
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: clamp(24px, 4vw, 40px);
       align-items: center;
-      box-shadow: var(--shadow);
+      box-shadow: none;
       position: relative;
       overflow: hidden;
     }
@@ -357,13 +374,11 @@
     }
 
     .card {
-      background: var(--white);
+      background: transparent;
       padding: 24px;
-      /* Increased padding */
       border-radius: 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-      /* Softer shadow */
-      border: 1px solid rgba(15, 118, 110, 0.06);
+      box-shadow: none;
+      border: none;
       display: grid;
       gap: 14px;
       transition: transform 0.2s;
@@ -373,13 +388,12 @@
       transform: translateY(-2px);
     }
 
-    /* Widget Cards (Special) */
     .widget-card {
-      background: linear-gradient(135deg, #f8fffe 0%, #ffffff 100%);
+      background: transparent;
       padding: 32px;
       border-radius: 24px;
-      box-shadow: 0 4px 20px rgba(15, 118, 110, 0.04);
-      border: 1px solid rgba(15, 118, 110, 0.08);
+      box-shadow: none;
+      border: none;
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -1472,19 +1486,80 @@
       </div>
     </section>
 
-    <section id="sintomas" aria-labelledby="sintomas-title" class="fade-in-section">
+    <section id="sintomas" aria-labelledby="sintomas-title" class="fade-in-section" style="padding-top: 80px;">
       <div class="section-head">
         <div>
-          <span class="eyebrow">Sintomas</span>
-          <h2 id="sintomas-title">Alívio direcionado para os sinais mais comuns</h2>
-          <p class="subtitle">Identificamos padrões de sintomas, gatilhos alimentares e estratégias de gestão que cabem
-            no seu dia.</p>
+          <span class="eyebrow">Mapeador de Sintomas</span>
+          <h2 id="sintomas-title">Como se sente hoje?</h2>
+          <p class="subtitle">Responda a 3 perguntas rápidas para percebermos o melhor caminho para o seu conforto.</p>
         </div>
       </div>
 
+      <!-- Symptom Checker Interactive -->
+      <div id="symptom-checker" style="max-width: 700px; margin: 0 auto 60px; text-align: center;">
+        <div id="sc-step-1" class="sc-step">
+          <p style="font-weight: 600; margin-bottom: 24px; font-size: 1.1rem;">Qual é o sintoma que mais a(o) incomoda?
+          </p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+            <button onclick="scNextStep(2, 'Inchaço')" class="sc-btn">Inchaço Abdominal</button>
+            <button onclick="scNextStep(2, 'Dor')" class="sc-btn">Dor ou Cãibras</button>
+            <button onclick="scNextStep(2, 'Gases')" class="sc-btn">Gases Excessivos</button>
+            <button onclick="scNextStep(2, 'Trânsito')" class="sc-btn">Alteração do Trânsito</button>
+          </div>
+        </div>
+
+        <div id="sc-step-2" class="sc-step" style="display: none;">
+          <p style="font-weight: 600; margin-bottom: 24px; font-size: 1.1rem;">Com que frequência isto acontece?</p>
+          <div style="display: flex; gap: 12px; justify-content: center;">
+            <button onclick="scNextStep(3, 'Diário')" class="sc-btn">Quase todos os dias</button>
+            <button onclick="scNextStep(3, 'Ocasional')" class="sc-btn">2 a 3 vezes por semana</button>
+          </div>
+        </div>
+
+        <div id="sc-step-3" class="sc-step" style="display: none;">
+          <p style="font-weight: 600; margin-bottom: 24px; font-size: 1.1rem;">Já notou se piora com algum destes
+            alimentos?</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
+            <button onclick="scShowResult('fodmap')" class="sc-btn">Alho ou Cebola</button>
+            <button onclick="scShowResult('fodmap')" class="sc-btn">Pão ou Massas</button>
+            <button onclick="scShowResult('geral')" class="sc-btn">Não tenho a certeza</button>
+          </div>
+        </div>
+
+        <div id="sc-result" class="sc-step" style="display: none;">
+          <h3 style="color: var(--teal); margin-bottom: 16px;">Temos uma recomendação para si.</h3>
+          <p id="sc-result-text" style="margin-bottom: 24px; line-height: 1.7;"></p>
+          <a href="#contactos" class="btn"
+            style="background: var(--teal); color: white; padding: 16px 32px; border-radius: 50px;">Agendar Consulta de
+            Avaliação</a>
+        </div>
+      </div>
+
+      <style>
+        .sc-btn {
+          background: white;
+          border: 1px solid var(--teal);
+          color: var(--teal);
+          padding: 14px 24px;
+          border-radius: 50px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-size: 0.95rem;
+          font-family: inherit;
+        }
+
+        .sc-btn:hover {
+          background: var(--teal);
+          color: white;
+        }
+
+        .sc-step {
+          transition: opacity 0.4s ease;
+        }
+      </style>
+
       <!-- Digestive System Diagram -->
-      <div
-        style="display: flex; justify-content: center; margin: 40px 0; padding: 40px 20px; background: linear-gradient(to bottom, #fafaf9 0%, #ffffff 100%);">
+      <div style="display: flex; justify-content: center; margin: 40px 0; padding: 40px 20px;">
         <img src="Assets/digestive-system-minimal.png" alt="Sistema Digestivo - Onde atua a dieta FODMAP"
           style="max-width: 400px; width: 100%; height: auto; opacity: 0.95;">
       </div>
@@ -2452,6 +2527,39 @@
     setInterval(() => {
       moveTestimonial(1);
     }, 5000);
+
+    // Symptom Checker Logic
+    let scSymptom = '';
+    let scFrequency = '';
+
+    function scNextStep(step, value) {
+      if (step === 2) scSymptom = value;
+      if (step === 3) scFrequency = value;
+
+      document.querySelectorAll('.sc-step').forEach(el => el.style.display = 'none');
+      document.getElementById('sc-step-' + step).style.display = 'block';
+    }
+
+    function scShowResult(type) {
+      document.querySelectorAll('.sc-step').forEach(el => el.style.display = 'none');
+      const resultDiv = document.getElementById('sc-result');
+      const resultText = document.getElementById('sc-result-text');
+
+      if (type === 'fodmap') {
+        resultText.innerText = `Os seus sintomas de ${scSymptom.toLowerCase()} são muito comuns em casos de sensibilidade a FODMAPs. A Dra. Marlene pode ajudá-la(o) a identificar exatamente os gatilhos e a recuperar o seu bem-estar através de um plano certificado pela Monash University.`;
+      } else {
+        resultText.innerText = 'Parece haver um desequilíbrio intestinal que precisa de atenção. O primeiro passo é uma avaliação detalhada para percebermos a causa raiz do seu desconforto.';
+      }
+
+      resultDiv.style.display = 'block';
+
+      // Update GeniNutri session with symptom data
+      if (typeof userSession !== 'undefined') {
+        userSession.sintomaPrincipal = scSymptom;
+        userSession.faseAtual = 'triagem';
+        localStorage.setItem('geninutri_session', JSON.stringify(userSession));
+      }
+    }
 
     // Locations Carousel
     let currentLocation = 0;
