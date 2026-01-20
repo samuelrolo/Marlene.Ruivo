@@ -1001,6 +1001,38 @@
       align-self: flex-end;
     }
 
+    /* Animação de carregamento (typing indicator) */
+    .geninutri-message.typing-indicator {
+      display: flex;
+      gap: 4px;
+      padding: 16px 20px;
+    }
+    
+    .geninutri-message.typing-indicator .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--teal);
+      border-radius: 50%;
+      animation: typingBounce 1.4s infinite ease-in-out both;
+    }
+    
+    .geninutri-message.typing-indicator .dot:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+    
+    .geninutri-message.typing-indicator .dot:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+    
+    @keyframes typingBounce {
+      0%, 80%, 100% {
+        transform: scale(0);
+      }
+      40% {
+        transform: scale(1);
+      }
+    }
+
     .geninutri-input {
       padding: 16px;
       border-top: 1px solid rgba(15, 118, 110, 0.08);
@@ -2117,7 +2149,7 @@
           </div>
           <div class="geninutri-messages" id="geninutriMessages">
             <div class="geninutri-message bot">
-              Olá! Sou a GeniNutri, especialista em dieta FODMAP e saúde intestinal. Como posso ajudar?
+              Olá! 👋 Sou a NutriGen, especialista em dieta FODMAP e saúde intestinal. Como te posso ajudar?
             </div>
           </div>
 
@@ -2703,111 +2735,74 @@
       setTimeout(() => respondGeniNutriAdvanced(message), 800);
     }
 
-    function addMessage(text, type) {
+    function addMessage(text, type, isTyping = false) {
       const messagesDiv = document.getElementById('geninutriMessages');
       const msgDiv = document.createElement('div');
-      msgDiv.className = `geninutri-message ${type}`;
-      msgDiv.textContent = text;
+      msgDiv.className = `geninutri-message ${type}${isTyping ? ' typing-indicator' : ''}`;
+      if (isTyping) {
+        msgDiv.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
+      } else {
+        msgDiv.textContent = text;
+      }
       messagesDiv.appendChild(msgDiv);
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
 
-    function respondGeniNutriAdvanced(userMessage) {
-      const msg = userMessage.toLowerCase();
-      let response = '';
-      let followUp = null;
-
-      // FOOD TRIGGER DETECTION with context
-      for (const [food, info] of Object.entries({ ...fodmapDatabase.high, ...fodmapDatabase.low })) {
-        if (msg.includes(food)) {
-          response = `${food}: ${info}. `;
-          if (info.includes('High')) {
-            userSession.gatilhosIdentificados.push(food);
-            response += `Tens notado desconforto após comer ${food}?`;
-            userSession.ultimaPergunta = 'sintoma_pos_alimento';
-          } else if (food === 'banana verde') {
-            response += 'Mas atenção: a banana madura já é High FODMAP. Costumas comer muita fruta durante o dia?';
-            userSession.ultimaPergunta = 'volume_frutose';
-          }
-          saveSession();
-          addMessage(response, 'bot');
-          return;
+    // Função principal que chama a Edge Function do Supabase
+    async function respondGeniNutriAdvanced(userMessage) {
+      // Mostrar indicador de carregamento
+      addMessage('A pensar...', 'bot', true);
+      
+      try {
+        // Construir o histórico de mensagens para contexto
+        const messages = userSession.historico.slice(-10).map(h => ({
+          role: h.tipo === 'user' ? 'user' : 'assistant',
+          content: h.texto
+        }));
+        
+        // Adicionar a mensagem atual
+        messages.push({ role: 'user', content: userMessage });
+        
+        // Chamar a Edge Function do Supabase
+        const response = await fetch('https://hihzmjqkszcxxdrhnqpy.supabase.co/functions/v1/nutrition-chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ messages })
+        });
+        
+        // Remover indicador de carregamento
+        removeTypingIndicator();
+        
+        if (!response.ok) {
+          throw new Error('Erro na resposta do servidor');
         }
-      }
-
-      // CRISIS MODE Detection
-      if (msg.includes('dor') && (msg.includes('muita') || msg.includes('agora') || msg.includes('crise'))) {
-        userSession.sintomaPrincipal = 'dor_aguda';
-        userSession.faseAtual = 'crise';
-        response = 'Lamento que estejas a passar por isso. Além da dor, sentes o abdómen inchado?';
-        userSession.ultimaPergunta = 'sintoma_secundario';
-        addMessage(response, 'bot');
+        
+        const data = await response.json();
+        const aiResponse = data.reply || 'Desculpa, não consegui processar a tua pergunta. Tenta novamente.';
+        
+        // Adicionar resposta da IA
+        addMessage(aiResponse, 'bot');
+        
+        // Guardar no histórico
+        userSession.historico.push({ tipo: 'bot', texto: aiResponse, timestamp: Date.now() });
         saveSession();
-        return;
+        
+      } catch (error) {
+        console.error('Erro ao comunicar com NutriGen:', error);
+        removeTypingIndicator();
+        addMessage('Desculpa, ocorreu um erro ao ligar ao assistente. Por favor, tenta novamente ou contacta-nos diretamente através do formulário.', 'bot');
       }
-
-      // CONTEXTUAL FOLLOW-UP based on last question
-      if (userSession.ultimaPergunta === 'sintoma_secundario') {
-        if (msg.includes('sim') || msg.includes('inchaço')) {
-          response = 'Entendo. Nestas fases de crise, a Dra. Marlene foca na Fase de Eliminação. Preferes consulta em Mafra, Lisboa, Sintra ou Online?';
-          userSession.ultimaPergunta = 'escolha_local';
-        } else {
-          response = 'Dor sem inchaço pode ter outras causas. É importante uma avaliação presencial. Posso mostrar-te os locais disponíveis?';
-        }
-        addMessage(response, 'bot');
-        saveSession();
-        return;
+    }
+    
+    // Função auxiliar para remover indicador de carregamento
+    function removeTypingIndicator() {
+      const messagesDiv = document.getElementById('geninutriMessages');
+      const typingIndicator = messagesDiv.querySelector('.typing-indicator');
+      if (typingIndicator) {
+        typingIndicator.remove();
       }
-
-      // LOCATION PREFERENCE
-      if (userSession.ultimaPergunta === 'escolha_local') {
-        if (msg.includes('mafra')) userSession.localidadePreferencia = 'mafra';
-        else if (msg.includes('lisboa')) userSession.localidadePreferencia = 'lisboa';
-        else if (msg.includes('sintra')) userSession.localidadePreferencia = 'sintra';
-        else if (msg.includes('online')) userSession.localidadePreferencia = 'online';
-
-        saveSession();
-        showLocationButtons(userSession.localidadePreferencia);
-        return;
-      }
-
-      // SYMPTOM Detection with Memory
-      if (msg.includes('inchaço') || msg.includes('gases') || msg.includes('dor abdominal')) {
-        const sintoma = msg.includes('inchaço') ? 'inchaço' : msg.includes('gases') ? 'gases' : 'dor';
-        userSession.sintomaPrincipal = sintoma;
-        response = `Sintomas de ${sintoma} são comuns em sensibilidade a FODMAPs. Estes sinais são comuns em casos de SII, mas apenas a Dra. Marlene pode confirmar num plano personalizado. `;
-
-        if (userSession.gatilhosIdentificados.length > 0) {
-          response += `Vejo que já identificaste: ${userSession.gatilhosIdentificados.join(', ')}. `;
-        }
-
-        response += 'Gostarias de marcar uma consulta de avaliação?';
-        userSession.faseAtual = 'conversao';
-
-        addMessage(response, 'bot');
-        setTimeout(() => showBookingButtons(), 1000);
-        saveSession();
-        return;
-      }
-
-      // FODMAP Info
-      if (msg.includes('fodmap') || msg.includes('o que é')) {
-        response = 'FODMAP são hidratos de carbono de cadeia curta que fermentam no intestino. A dieta Low FODMAP, desenvolvida pela Monash University, tem 3 fases: Eliminação, Reintrodução e Personalização.';
-        // NO manual addMessage here to prevent duplicate if fall-through happened (though return handles it)
-        // ensuring Clean return
-        addMessage(response, 'bot');
-        return;
-      }
-
-      // Default with context awareness
-      if (userSession.historico.length > 2) {
-        response = 'Posso ajudar com mais alguma dúvida sobre alimentos, sintomas ou marcar consulta?';
-      } else {
-        response = 'Posso ajudar com informações sobre FODMAP, identificar alimentos gatilho ou marcar consulta. O que te interessa?';
-      }
-
-      // Final catch-all message add if not returned previously
-      if (response) addMessage(response, 'bot');
     }
 
     function showRecoveryButtons() {
