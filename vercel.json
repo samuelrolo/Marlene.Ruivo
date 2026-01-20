@@ -8,6 +8,10 @@
   },
   "routes": [
     {
+      "src": "/Assets/og-image.jpg",
+      "dest": "/Assets/og-image.jpg"
+    },
+    {
       "src": "/og-image.png",
       "dest": "/public/og-image.png"
     },
