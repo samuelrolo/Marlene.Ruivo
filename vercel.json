@@ -8,6 +8,10 @@
   },
   "routes": [
     {
+      "src": "/og-image.png",
+      "dest": "/public/og-image.png"
+    },
+    {
       "src": "/api/(.*)",
       "dest": "/api/$1"
     }
