@@ -1064,6 +1064,23 @@
       opacity: 0.9;
     }
 
+    .geninutri-input .upload-btn {
+      padding: 10px 12px;
+      background: rgba(15, 118, 110, 0.1);
+      color: var(--teal);
+      border: 1px solid rgba(15, 118, 110, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .geninutri-input .upload-btn:hover {
+      background: rgba(15, 118, 110, 0.2);
+      opacity: 1;
+    }
+
     .geninutri-quick-buttons {
       display: flex;
       flex-wrap: wrap;
@@ -2162,9 +2179,24 @@
           </div>
 
           <div class="geninutri-input">
+            <input type="file" id="geninutriImageInput" accept="image/*" style="display: none;" onchange="handleImageSelect(event)">
+            <button class="upload-btn" onclick="document.getElementById('geninutriImageInput').click()" title="Enviar foto de rótulo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <polyline points="21 15 16 10 5 21"/>
+              </svg>
+            </button>
             <input type="text" id="geninutriInput" placeholder="Escreve a tua dúvida..."
               onkeypress="if(event.key === 'Enter') sendGeniNutri()">
             <button onclick="sendGeniNutri()">Enviar</button>
+          </div>
+          <div id="imagePreviewContainer" style="display: none; padding: 8px 16px;">
+            <div style="position: relative; display: inline-block;">
+              <img id="imagePreview" style="max-width: 150px; max-height: 100px; border-radius: 8px; border: 2px solid var(--teal);">
+              <button onclick="clearImagePreview()" style="position: absolute; top: -8px; right: -8px; background: var(--teal); color: white; border: none; border-radius: 50%; width: 20px; height: 20px; cursor: pointer; font-size: 12px;">&times;</button>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--muted); margin: 4px 0 0 0;">Imagem pronta para análise</p>
           </div>
   </div>
 
@@ -2726,6 +2758,13 @@
     function sendGeniNutri() {
       const input = document.getElementById('geninutriInput');
       const message = input.value.trim();
+      
+      // Se há uma imagem seleccionada, enviar para análise
+      if (selectedImageBase64) {
+        sendImageForAnalysis();
+        return;
+      }
+      
       if (!message) return;
 
       addMessage(message, 'user');
@@ -2803,6 +2842,106 @@
       if (typingIndicator) {
         typingIndicator.remove();
       }
+    }
+
+    // Variável para guardar a imagem seleccionada
+    let selectedImageBase64 = null;
+
+    // Função para processar a selecção de imagem
+    function handleImageSelect(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      // Verificar se é uma imagem
+      if (!file.type.startsWith('image/')) {
+        addMessage('Por favor, selecciona apenas ficheiros de imagem.', 'bot');
+        return;
+      }
+
+      // Verificar tamanho (máx 5MB)
+      if (file.size > 5 * 1024 * 1024) {
+        addMessage('A imagem é demasiado grande. Por favor, usa uma imagem até 5MB.', 'bot');
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        selectedImageBase64 = e.target.result;
+        
+        // Mostrar pré-visualização
+        const previewContainer = document.getElementById('imagePreviewContainer');
+        const previewImg = document.getElementById('imagePreview');
+        previewImg.src = selectedImageBase64;
+        previewContainer.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Função para limpar a pré-visualização da imagem
+    function clearImagePreview() {
+      selectedImageBase64 = null;
+      document.getElementById('imagePreviewContainer').style.display = 'none';
+      document.getElementById('geninutriImageInput').value = '';
+    }
+
+    // Função para enviar imagem para análise
+    async function sendImageForAnalysis() {
+      if (!selectedImageBase64) return;
+
+      // Mostrar a imagem no chat como mensagem do utilizador
+      addImageMessage(selectedImageBase64, 'user');
+      userSession.historico.push({ tipo: 'user', texto: '[Imagem de rótulo enviada para análise]', timestamp: Date.now() });
+      saveSession();
+
+      // Limpar pré-visualização
+      const imageToSend = selectedImageBase64;
+      clearImagePreview();
+
+      // Mostrar indicador de carregamento
+      addMessage('A analisar o rótulo...', 'bot', true);
+
+      try {
+        const messages = userSession.historico.slice(-10).map(h => ({
+          role: h.tipo === 'user' ? 'user' : 'assistant',
+          content: h.texto
+        }));
+
+        const response = await fetch('https://hihzmjqkszcxxdrhnqpy.supabase.co/functions/v1/nutrition-chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ messages, image: imageToSend })
+        });
+
+        removeTypingIndicator();
+
+        if (!response.ok) {
+          throw new Error('Erro na resposta do servidor');
+        }
+
+        const data = await response.json();
+        const aiResponse = data.reply || 'Desculpa, não consegui analisar a imagem. Tenta novamente.';
+
+        addMessage(aiResponse, 'bot');
+        userSession.historico.push({ tipo: 'bot', texto: aiResponse, timestamp: Date.now() });
+        saveSession();
+
+      } catch (error) {
+        console.error('Erro ao analisar imagem:', error);
+        removeTypingIndicator();
+        addMessage('Desculpa, ocorreu um erro ao analisar a imagem. Por favor, tenta novamente.', 'bot');
+      }
+    }
+
+    // Função para adicionar imagem como mensagem
+    function addImageMessage(imageSrc, type) {
+      const messagesDiv = document.getElementById('geninutriMessages');
+      const msgDiv = document.createElement('div');
+      msgDiv.className = `geninutri-message ${type}`;
+      msgDiv.innerHTML = `<img src="${imageSrc}" style="max-width: 200px; max-height: 200px; border-radius: 8px;" alt="Imagem enviada">`;
+      messagesDiv.appendChild(msgDiv);
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
     }
 
     function showRecoveryButtons() {
